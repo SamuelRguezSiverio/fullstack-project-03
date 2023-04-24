@@ -1,2 +1,2 @@
 # fullstack-project-03
-Project 03 Reboot Academy Moni - Manu - Samu: Pruebita
+Project 03 Reboot Academy Moni - Manu - Samu
