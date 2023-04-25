@@ -13,15 +13,21 @@ import {
 } from '@mui/material'
 
 function SignupCard({ changeToLogin }) {
-  const [userName, setUserName] = useState('')
+  const [name, setName] = useState('')
+  const [surname, setSurname] = useState('')
+  const [dni, setDNI] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [city, setCity] = useState('')
 
   async function onSignup() {
     const dataInSignup = {
-      userName,
+      name,
+      surname,
+      dni,
       email,
-      password
+      password,
+      city
     }
     const apiResponse = await signup(dataInSignup)
     console.log(apiResponse)
@@ -32,8 +38,22 @@ function SignupCard({ changeToLogin }) {
       <CardHeader title="Sign Up" />
       <CardContent>
         <TextField
-          onChange={(e) => setUserName(e.target.value)}
-          label="User name"
+          onChange={(e) => setName(e.target.value)}
+          label="Name"
+          variant="outlined"
+          fullWidth={true}
+          sx={{ marginBottom: '20px' }}
+        />
+        <TextField
+          onChange={(e) => setSurname(e.target.value)}
+          label="Surname"
+          variant="outlined"
+          fullWidth={true}
+          sx={{ marginBottom: '20px' }}
+        />
+        <TextField
+          onChange={(e) => setDNI(e.target.value)}
+          label="DNI"
           variant="outlined"
           fullWidth={true}
           sx={{ marginBottom: '20px' }}
@@ -51,6 +71,14 @@ function SignupCard({ changeToLogin }) {
           type="password"
           variant="outlined"
           fullWidth={true}
+          sx={{ marginBottom: '20px' }}
+        />
+        <TextField
+          onChange={(e) => setCity(e.target.value)}
+          label="City"
+          variant="outlined"
+          fullWidth={true}
+          sx={{ marginBottom: '20px' }}
         />
       </CardContent>
       <Divider />

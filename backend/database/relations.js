@@ -1,3 +1,3 @@
-const User = require('../api/models/userModel')
+const AccountManager = require('../api/models/accountManager.Model')
 
-module.exports = User
+module.exports = AccountManager

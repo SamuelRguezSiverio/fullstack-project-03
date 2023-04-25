@@ -1,10 +1,18 @@
 const { sequelize } = require('../../database')
 const { DataTypes } = require('sequelize')
 
-const User = sequelize.define(
-  'users',
+const AccountManager = sequelize.define(
+  'accountManager',
   {
-    userName: {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    surname: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    dni: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -23,12 +31,12 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false
     },
-    birth_date: {
-      type: DataTypes.DATE,
-      allowNull: true
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   { timestamps: false }
 )
 
-module.exports = User
+module.exports = AccountManager

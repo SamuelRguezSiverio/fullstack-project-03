@@ -1,11 +1,11 @@
-const User = require('../models/userModel')
+const AccountManager = require('../models/accountManager.Model')
 
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 async function login(req, res) {
   try {
-    const user = await User.findOne({
+    const user = await AccountManager.findOne({
       where: {
         email: req.body.email
       }
@@ -17,7 +17,7 @@ async function login(req, res) {
       if (err) return res.status(500).send(err)
       if (!result) return res.status(401).send('Email or password incorrect')
 
-      const payload = { email: user.email, userName: user.userName }
+      const payload = { email: user.email }
       const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1h' })
       return res.status(200).json({ token: token })
     })
@@ -30,11 +30,11 @@ async function signup(req, res) {
   try {
     req.body.password = bcrypt.hashSync(req.body.password, 10)
 
-    const user = await User.create(req.body, {
-      fields: ['userName', 'email', 'password', 'birth_date'] //Definimos los campos que pueden rellenar.
+    const user = await AccountManager.create(req.body, {
+      fields: ['name', 'surname', 'dni', 'email', 'password', 'city'] //Definimos los campos que pueden rellenar.
     })
 
-    const payload = { email: user.email, userName: user.userName }
+    const payload = { email: user.email }
     const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1h' })
 
     return res.status(200).json({ token: token })
