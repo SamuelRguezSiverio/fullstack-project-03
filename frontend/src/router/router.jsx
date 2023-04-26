@@ -2,13 +2,18 @@ import { createBrowserRouter, redirect } from 'react-router-dom'
 
 import Auth from '../pages/Auth/Auth'
 import App from '../App'
+import Products from '../pages/Products/Products'
+import Cart from '../pages/Cart/Cart'
+import AfterSales from '../pages/AfterSales/AfterSales'
+import Home from '../pages/Home/Home'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/signup',
     element: <Auth />,
   },
   {
+    element: <App />,
     loader: () => {
       if (!localStorage.getItem('token')) {
         return redirect('/')
@@ -19,9 +24,20 @@ const router = createBrowserRouter([
     children: [
 
       {
-        path: '/home',
-        element: <App />,
-
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/productos',
+        element: <Products />,
+      },
+      {
+        path: '/carrito',
+        element: <Cart />,
+      },
+      {
+        path: '/postventa',
+        element: <AfterSales />,
       }
     ]
   },

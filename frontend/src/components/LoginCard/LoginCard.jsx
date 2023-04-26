@@ -38,7 +38,7 @@ function LoginCard({ changeToSignup }) {
     try {
       const apiResponse = await login(dataInLogin)
       localStorage.setItem('token', apiResponse.data.token)
-      navigate('/home')
+      navigate('/')
     } catch (error) {
       setErrorMessage(error.response.data)
       setTimeout(() => {
