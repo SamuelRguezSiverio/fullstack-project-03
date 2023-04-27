@@ -1,10 +1,18 @@
-.phone-card {
-    display: flex;
-    flex-direction: row;
+.phone{
+    height: calc(100vh - 73px - 56px);
     width: 90%;
-    min-height: 100vh;
+}
+
+.main-box-phone {
+    display: flex;
     margin-top: 40px;
-    gap: 10px;
+    flex-direction: row;
+    margin-bottom: 0px;
+}
+
+.phone-data {
+    margin-left: 5rem;
+    padding-bottom: 30px;
 }
 
 h1 {

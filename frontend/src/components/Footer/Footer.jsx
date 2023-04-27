@@ -8,9 +8,10 @@ function Footer() {
     <footer>
       <Box sx={{
         width: '100%',
+        backgroundColor: 'blue',
         position: 'fixed',
         bottom: 0
-      }} textAlign={'center'} py={2} m={0} color={'black'}>
+      }} textAlign={'center'} py={0} m={0} color={'white'}>
         <Typography>© Reboot Academy {year} - All Rights Reserved</Typography>
       </Box>
     </footer>

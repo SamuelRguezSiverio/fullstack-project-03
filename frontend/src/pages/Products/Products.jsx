@@ -4,7 +4,7 @@ import './Products.css'
 
 function Products() {
   return (
-    <div>
+    <div className='main'>
       <PhoneCard/>
     </div>
   )
