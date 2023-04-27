@@ -65,7 +65,7 @@ function DrawerAppBar(props) {
       width: 'auto',
     },
   }));
-  
+
   const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
@@ -75,7 +75,7 @@ function DrawerAppBar(props) {
     alignItems: 'center',
     justifyContent: 'center',
   }));
-  
+
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
     '& .MuiInputBase-input': {
@@ -109,7 +109,8 @@ function DrawerAppBar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            LOGO DE EMPRESA
+            <Link to="/">            LOGO DE EMPRESA
+            </Link>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -122,7 +123,7 @@ function DrawerAppBar(props) {
           </Search>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Link to={`/${item.toLowerCase()}`}
+              <Link key={item} to={`/${item.toLowerCase()}`}
                 state={{ categoryName: item }}>
                 <Button key={item} sx={{ color: '#fff' }}>
                   {item}

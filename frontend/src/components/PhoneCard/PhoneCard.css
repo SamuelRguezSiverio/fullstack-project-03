@@ -1,0 +1,16 @@
+.phone-card {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    min-height: 100vh;
+    margin-top: 40px;
+    gap: 10px;
+}
+
+h1 {
+    margin-top: 5px;
+}
+
+h3 {
+    margin: 0px;
+}

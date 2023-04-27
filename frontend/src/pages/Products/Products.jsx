@@ -1,8 +1,12 @@
 import React from 'react'
+import PhoneCard from '../../components/PhoneCard/PhoneCard'
+import './Products.css'
 
 function Products() {
   return (
-    <div>Products</div>
+    <div>
+      <PhoneCard/>
+    </div>
   )
 }
 
