@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { checkConnection, syncModels } = require('./database/index')
-const AccountManager = require('./database/relations.js')
+const addRelationsToModels = require('./database/relations.js')
 
 const express = require('express')
 const cors = require('cors')
@@ -8,6 +8,7 @@ const morgan = require('morgan')
 
 async function checkAndSyncPostgreSQL() {
   await checkConnection()
+  addRelationsToModels()
   await syncModels()
 }
 

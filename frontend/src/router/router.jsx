@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <App />,
     loader: () => {
       if (!localStorage.getItem('token')) {
-        return redirect('/')
+        return redirect('/signup')
       } else {
         return null
       }

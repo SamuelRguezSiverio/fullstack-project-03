@@ -7,7 +7,7 @@ async function login(req, res) {
   try {
     const user = await AccountManager.findOne({
       where: {
-        email: req.body.email
+        email: req.body.email 
       }
     })
 
