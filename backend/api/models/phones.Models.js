@@ -64,11 +64,8 @@ const Phones = sequelize.define('phones',
             type: DataTypes.INTEGER,
             alloNull: false,
         },
-        brandId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        }
-    }
-)
+    },
+    { timestamps: false }
+    )
 
 module.exports = Phones
