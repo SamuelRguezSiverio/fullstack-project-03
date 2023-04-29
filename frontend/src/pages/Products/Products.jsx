@@ -1,11 +1,12 @@
 import React from 'react'
-import PhoneCard from '../../components/PhoneCard/PhoneCard'
+// import PhoneCard from '../../components/PhoneCard/PhoneCard'
+import PhoneList from '../../components/PhoneList/PhoneList'
 import './Products.css'
 
 function Products() {
   return (
     <div className='main'>
-      <PhoneCard/>
+      <PhoneList/>
     </div>
   )
 }

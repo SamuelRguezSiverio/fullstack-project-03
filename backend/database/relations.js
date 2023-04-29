@@ -7,6 +7,7 @@ function addRelationsToModels() {
     try {
         Brand.hasMany(Phones)
         Phones.belongsTo(Brand)
+
         console.log("Relations succesfully added")
     }
     catch (error) {

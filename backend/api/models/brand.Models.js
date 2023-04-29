@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize')
 const Brand = sequelize.define(
   'brands',
   {
-    brand_name: {
+    brand: {
       type: DataTypes.STRING,
       allowNull: false
     },

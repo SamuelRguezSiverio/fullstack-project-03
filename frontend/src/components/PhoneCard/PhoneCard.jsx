@@ -1,7 +1,10 @@
 import React from 'react'
 import './PhoneCard.css'
 import { Button, TextField, Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material'
-function PhoneCard() {
+
+
+function PhoneCard({ marca, modelo, color, memoria, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio, stock }) {
+
   return (
     <div className='phone'>
       <div className='main-box-phone'>
@@ -9,9 +12,9 @@ function PhoneCard() {
           <img src='https://thumb.pccomponentes.com/w-530-530/articles/1058/10581317/1866-apple-iphone-14-pro-max-256gb-plata-libre-0dd128be-99b7-434b-9158-d8fd7d29cca7.jpg' />
         </div>
         <div>
-          <h3>Apple iPhone 14 Pro Max 256GB Morado Oscuro Libre</h3>
-          <h1>1479€</h1>
-          <p>Marca: Apple</p>
+          <h3>{modelo}</h3>
+          <h1>{precio}</h1>
+          <p>Marca: {marca}</p>
           <p>Colores:</p>
           <FormControl>
             <RadioGroup
@@ -64,13 +67,14 @@ function PhoneCard() {
         </div>
       </div>
       <div className='phone-data'>
-        <p>Procesador: </p>
-        <p>Cámara: </p>
-        <p>Dimensiones: </p>
-        <p>Peso: </p>
-        <p>Batería: </p>
-        <p>Pantalla: </p>
-        <p>Extras: </p>
+        <p>Procesador: {procesador}</p>
+        <p>Cámara: {camara}</p>
+        <p>Cámara Frontal: {camara_frontal}</p>
+        <p>Dimensiones: {dimensiones}</p>
+        <p>Peso: {peso}</p>
+        <p>Batería: {bateria}</p>
+        <p>Pantalla: {pantalla}</p>
+        <p>Extras: {extras}</p>
       </div>
     </div>
   )

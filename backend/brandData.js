@@ -5,13 +5,16 @@ const Brand = require("./api/models/brand.Models");
 async function insertBrands() {
     const brand = await Brand.bulkCreate([
         {
-            brand_name: 'Apple'
+            id: 1,
+            brand: 'Apple'
         },
         {
-            brand_name: 'Samsung'
+            id: 2,
+            brand: 'Samsung'
         },
         {
-            brand_name: 'Xiaomi'
+            id: 3,
+            brand: 'Xiaomi'
         }
     ]);
     return brand;

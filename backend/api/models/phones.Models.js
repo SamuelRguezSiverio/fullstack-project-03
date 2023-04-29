@@ -3,15 +3,6 @@ const { DataTypes } = require('sequelize')
 
 const Phones = sequelize.define('phones',
     {
-        id: {
-			type: DataTypes.INTEGER,
-			autoIncrement: true,
-			primaryKey: true,
-		},
-        marca: {
-            type: DataTypes.STRING,
-            alloNull: false,
-        },
         modelo: {
             type: DataTypes.STRING,
             alloNull: false,
