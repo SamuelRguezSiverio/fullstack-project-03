@@ -1,7 +1,4 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 73px - 56px);
+    margin-top: 20px;
+    min-height: calc(100vh - 73px - 24px);
 }

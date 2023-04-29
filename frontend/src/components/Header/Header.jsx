@@ -20,7 +20,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 
 const drawerWidth = 240;
-const navItems = ['Productos', 'Carrito', 'Postventa'];
+const navItems = ['Products', 'Cart', 'Aftersales'];
 
 function DrawerAppBar(props) {
   const { window } = props;

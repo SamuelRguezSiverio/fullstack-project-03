@@ -1,24 +1,10 @@
-.phone{
-    height: calc(100vh - 73px - 56px);
-    width: 90%;
-}
-
-.main-box-phone {
+.phone-box-card {
     display: flex;
-    margin-top: 40px;
-    flex-direction: row;
-    margin-bottom: 0px;
-}
-
-.phone-data {
-    margin-left: 5rem;
-    padding-bottom: 30px;
-}
-
-h1 {
-    margin-top: 5px;
-}
-
-h3 {
-    margin: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    width: 350px;
+    border-radius: 30px;
+    padding: 20px;
 }

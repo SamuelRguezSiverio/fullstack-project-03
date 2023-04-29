@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { getAllPhones } from '../../services/phoneAPI'
 import PhoneCard from '../PhoneCard/PhoneCard'
+import './PhoneList.css'
+import { Link } from 'react-router-dom'
 
 function PhoneList() {
 
@@ -16,12 +18,12 @@ function PhoneList() {
 
     const showPhoneList = () => {
         return showAllPhones.map((phone, id) => (
-            <PhoneCard key={id} modelo={phone.modelo} precio={phone.precio} />
+            <Link key={id} to={`/products/${phone.id}`}><PhoneCard key={phone.id} modelo={phone.modelo} precio={phone.precio} brandId={phone.brand}/></Link>
         ));
     };
 
     return (
-        <div>{showPhoneList}</div>
+        <div className='phone-list-card'>{showPhoneList()}</div>
     )
 }
 

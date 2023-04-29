@@ -6,6 +6,7 @@ import Products from '../pages/Products/Products'
 import Cart from '../pages/Cart/Cart'
 import AfterSales from '../pages/AfterSales/AfterSales'
 import Home from '../pages/Home/Home'
+import SinglePhone from '../pages/SinglePhone/SinglePhone'
 
 const router = createBrowserRouter([
   {
@@ -28,15 +29,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/productos',
+        path: '/products',
         element: <Products />,
       },
       {
-        path: '/carrito',
+        path: '/products/:id',
+        element: <SinglePhone />,
+      },
+      {
+        path: '/cart',
         element: <Cart />,
       },
       {
-        path: '/postventa',
+        path: '/aftersales',
         element: <AfterSales />,
       }
     ]

@@ -1,6 +1,11 @@
 import authApi from './authAPIConfig'
 
-export async function getAllPhones(data) {
-    const response = await authApi.get('/phones/', data)
-    return response.data
+export async function getAllPhones() {
+    const {data} = await authApi.get('/phones/')
+    return data
   }
+
+  export const getPhoneById = async (q) => {
+    const { data } = await authApi.get(`/phones/${q}`)
+    return data[0]
+}
