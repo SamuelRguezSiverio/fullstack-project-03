@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, TextField, Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material'
 
 
-function PhoneCard({ marca, modelo, color, memoria, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio, stock }) {
+function PhoneDetail({ marca, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio }) {
 
   return (
     <div className='phone'>
@@ -79,4 +79,4 @@ function PhoneCard({ marca, modelo, color, memoria, pantalla, dimensiones, proce
   )
 }
 
-export default PhoneCard
+export default PhoneDetail
