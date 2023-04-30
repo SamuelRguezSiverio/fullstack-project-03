@@ -1,26 +1,26 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
-import SearchIcon from '@mui/icons-material/Search';
-import InputBase from '@mui/material/InputBase';
+import * as React from "react";
+import { styled, alpha } from "@mui/material/styles";
+import PropTypes from "prop-types";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
 
 const drawerWidth = 240;
-const navItems = ['Products', 'Cart', 'Aftersales'];
+const navItems = ["Phones", "Cart", "Aftersales"];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -31,7 +31,7 @@ function DrawerAppBar(props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         NOMBRE DE EMPRESA
       </Typography>
@@ -39,7 +39,7 @@ function DrawerAppBar(props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton sx={{ textAlign: "center" }}>
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -48,50 +48,51 @@ function DrawerAppBar(props) {
     </Box>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
-  const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
+    "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
-      width: 'auto',
+      width: "auto",
     },
   }));
 
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   }));
 
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
+    color: "inherit",
+    "& .MuiInputBase-input": {
       padding: theme.spacing(1, 1, 1, 0),
       // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: '20ch',
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("md")]: {
+        width: "20ch",
       },
     },
   }));
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar component="nav">
         <Toolbar>
@@ -100,17 +101,16 @@ function DrawerAppBar(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <Link to="/">            LOGO DE EMPRESA
-            </Link>
+            <Link to="/"> LOGO DE EMPRESA</Link>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -118,14 +118,17 @@ function DrawerAppBar(props) {
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Link key={item} to={`/${item.toLowerCase()}`}
-                state={{ categoryName: item }}>
-                <Button key={item} sx={{ color: '#fff' }}>
+              <Link
+                key={item}
+                to={`/${item.toLowerCase()}`}
+                state={{ categoryName: item }}
+              >
+                <Button key={item} sx={{ color: "#fff" }}>
                   {item}
                 </Button>
               </Link>
@@ -143,14 +146,16 @@ function DrawerAppBar(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
         </Drawer>
       </Box>
-
     </Box>
   );
 }

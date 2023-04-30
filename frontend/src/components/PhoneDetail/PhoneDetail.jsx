@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button, TextField, Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material'
 
-
-function PhoneDetail({ marca, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio }) {
+function PhoneDetail(props) {
+  const { marca, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio } = props
 
   return (
     <div className='phone'>

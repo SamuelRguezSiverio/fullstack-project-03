@@ -14,7 +14,7 @@ async function getAllPhones(req, res) {
     }
 }
 
-async function getOnePhone(req, res) {
+/* async function getOnePhone(req, res) {
 	try {
 		const phone = await Phone.findByPk(req.params.id)
 		if (phone) {
@@ -25,10 +25,9 @@ async function getOnePhone(req, res) {
 	} catch (error) {
 		res.status(500).send(error.message)
 	}
-}
+} */
 
 
 module.exports = {
     getAllPhones,
-    getOnePhone
 }
