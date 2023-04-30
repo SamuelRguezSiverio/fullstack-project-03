@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import PhoneDetail from '../../components/PhoneDetail/PhoneDetail'
 import { getAllPhones } from '../../services/phoneAPI'
 import { useParams } from 'react-router-dom'

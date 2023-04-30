@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import PhoneList from '../../components/PhoneList/PhoneList'
+import PhoneCard from '../../components/PhoneCard/PhoneCard'
 import { Link } from 'react-router-dom'
 import './Phones.css'
 import { getAllPhones } from '../../services/phoneAPI'
@@ -20,7 +20,7 @@ function Phones() {
     <div className='main'>
       {phones.map(phone => (
         <Link key={phone.id} to={`/phones/${phone.id}`}>
-          <PhoneList phone={phone} />
+          <PhoneCard {...phone} />
         </Link>
       ))}
     </div>
