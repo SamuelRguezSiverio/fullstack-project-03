@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
@@ -18,11 +18,20 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
+import { CartContext } from "../../Contexts/CartContext";
 
 const drawerWidth = 240;
 const navItems = ["Phones", "Cart", "Aftersales"];
 
 function DrawerAppBar(props) {
+
+  const [cart, setCart] = useContext(CartContext)
+
+  const quantity = cart.reduce((acc, curr) => {
+    return acc + curr.quantity
+  }, 0)
+
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -33,7 +42,7 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        NOMBRE DE EMPRESA
+        triPHONE
       </Typography>
       <Divider />
       <List>
@@ -110,7 +119,7 @@ function DrawerAppBar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <Link to="/"> LOGO DE EMPRESA</Link>
+            <Link to="/"> triPHONE</Link>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -134,6 +143,7 @@ function DrawerAppBar(props) {
               </Link>
             ))}
           </Box>
+          <h5 style={{ marginLeft: '20px' }}>CartITEMS:</h5><span style={{ marginLeft: '5px', backgroundColor: 'red', borderRadius: '30px' }}>{quantity}</span>
         </Toolbar>
       </AppBar>
       <Box component="nav">

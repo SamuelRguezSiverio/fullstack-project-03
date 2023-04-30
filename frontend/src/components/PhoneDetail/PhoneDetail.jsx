@@ -1,8 +1,50 @@
-import React from 'react'
+import { useContext } from 'react'
 import { Button, TextField, Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material'
+import { CartContext } from '../../Contexts/CartContext'
 
 function PhoneDetail(props) {
-  const { marca, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio } = props
+  const { id, marca, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio } = props
+
+  const [cart, setCart] = useContext(CartContext)
+
+const addToCart = () => {
+    setCart((currPhones) => {
+      const isPhoneFound = currPhones.find((phone) => phone.id === id)
+      if(isPhoneFound){
+        return currPhones.map((phone) => {
+          if(phone.id === id){
+            return {...phone, quantity : phone.quantity + 1} 
+          } else {
+            return phone
+          }
+        })
+      } else {
+        return [...currPhones, {id, quantity: 1, precio}]
+      }
+    })
+}
+
+  const removePhone = (id) => { 
+    setCart((currPhones) => {
+      if(currPhones.find((phone) => phone.id === id)?.quantity === 1){
+        return currPhones.filter((phone) => phone.id !== id)
+      } else {
+        return currPhones.map((phone) => {
+          if(phone.id === id) {
+            return {...phone, quantity: phone.quantity - 1}
+          } else {
+            return phone
+          }
+        })
+      }
+    })
+   }
+
+   const getQuantityById = (id) => { 
+    return cart.find((phone) => phone.id === id)?.quantity || 0
+    }
+
+    const quantityPerItem = getQuantityById(id)
 
   return (
     <div className='phone'>
@@ -13,6 +55,9 @@ function PhoneDetail(props) {
         <div>
           <h3>{modelo}</h3>
           <h1>{precio}</h1>
+          {quantityPerItem > 0 && (
+            <div><h1 style={{color: 'red'}}>{quantityPerItem}</h1></div>
+          )}
           <p>Marca: {marca}</p>
           <p>Colores:</p>
           <FormControl>
@@ -62,7 +107,14 @@ function PhoneDetail(props) {
               shrink: true,
             }}
           />
-          <Button>Añadir al Carrito</Button>
+{quantityPerItem === 0 ? (
+            <Button onClick={() => addToCart()}>Añadir al Carrito</Button>
+): (
+  <Button onClick={() => addToCart()}>Añadir +</Button>
+)}
+{quantityPerItem > 0 && (
+  <Button onClick={() => removePhone(id)}>Quitar -</Button>
+)}
         </div>
       </div>
       <div className='phone-data'>

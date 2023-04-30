@@ -48,7 +48,7 @@ const Phones = sequelize.define('phones',
             alloNull: true,
         },
         precio: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             alloNull: false,
         },
         stock: {
