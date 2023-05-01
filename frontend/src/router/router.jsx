@@ -6,7 +6,7 @@ import Cart from '../pages/Cart/Cart'
 import AfterSales from '../pages/AfterSales/AfterSales'
 import Home from '../pages/Home/Home'
 import SinglePhone from '../pages/SinglePhone/SinglePhone'
-import Phones from '../pages/Products/Phones'
+import Phones from '../pages/Phones/Phones'
 
 const router = createBrowserRouter([
   {
