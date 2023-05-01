@@ -7,7 +7,7 @@ import { SearchContext } from '../../Contexts/SearchContext'
 
 function Phones() {
 
-  const {search} = useContext(SearchContext)
+  const { search } = useContext(SearchContext)
   const [phones, setPhones] = useState([])
 
   useEffect(() => {
@@ -19,15 +19,16 @@ function Phones() {
   }, [])
 
   return (
-    <div className='main'>
-      <p>{search}</p>
-      {phones.map(phone => (
-        <Link key={phone.id} to={`/phones/${phone.id}`}>
-          <PhoneCard {...phone} />
-        </Link> 
-      ))}
+    <div className="main">
+      {phones
+        .filter((phone) => search ? phone.modelo.toLowerCase().includes(search.toLowerCase()) : true)
+        .map((phone) => (
+          <Link key={phone.id} to={`/phones/${phone.id}`}>
+            <PhoneCard {...phone} />
+          </Link>
+        ))}
     </div>
-  )
+  );
 }
 
 export default Phones
