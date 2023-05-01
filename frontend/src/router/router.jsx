@@ -2,7 +2,6 @@ import { createBrowserRouter, redirect } from 'react-router-dom'
 
 import Auth from '../pages/Auth/Auth'
 import App from '../App'
-import Products from '../pages/Products/Phones'
 import Cart from '../pages/Cart/Cart'
 import AfterSales from '../pages/AfterSales/AfterSales'
 import Home from '../pages/Home/Home'
