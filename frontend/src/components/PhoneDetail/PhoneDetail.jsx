@@ -3,48 +3,50 @@ import { Button, TextField, Radio, RadioGroup, FormControlLabel, FormControl } f
 import { CartContext } from '../../Contexts/CartContext'
 
 function PhoneDetail(props) {
-  const { id, marca, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio } = props
+  const { id, memoria, marca, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio, color } = props
 
   const [cart, setCart] = useContext(CartContext)
 
-const addToCart = () => {
+  const addToCart = () => {
     setCart((currPhones) => {
       const isPhoneFound = currPhones.find((phone) => phone.id === id)
-      if(isPhoneFound){
+      if (isPhoneFound) {
         return currPhones.map((phone) => {
-          if(phone.id === id){
-            return {...phone, quantity : phone.quantity + 1} 
+          if (phone.id === id) {
+            return { ...phone, quantity: phone.quantity + 1 }
           } else {
             return phone
           }
         })
       } else {
-        return [...currPhones, {id, quantity: 1, precio}]
+        return [...currPhones, { id, quantity: 1, precio, modelo, memoria, color }]
       }
     })
-}
+  }
 
-  const removePhone = (id) => { 
+  const removePhone = (id) => {
     setCart((currPhones) => {
-      if(currPhones.find((phone) => phone.id === id)?.quantity === 1){
+      if (currPhones.find((phone) => phone.id === id)?.quantity === 1) {
         return currPhones.filter((phone) => phone.id !== id)
       } else {
         return currPhones.map((phone) => {
-          if(phone.id === id) {
-            return {...phone, quantity: phone.quantity - 1}
+          if (phone.id === id) {
+            return { ...phone, quantity: phone.quantity - 1 }
           } else {
             return phone
           }
         })
       }
     })
-   }
+  }
 
-   const getQuantityById = (id) => { 
+  const getQuantityById = (id) => {
     return cart.find((phone) => phone.id === id)?.quantity || 0
-    }
+  }
 
-    const quantityPerItem = getQuantityById(id)
+  const quantityPerItem = getQuantityById(id)
+  
+  
 
   return (
     <div className='phone'>
@@ -56,7 +58,7 @@ const addToCart = () => {
           <h3>{modelo}</h3>
           <h1>{precio}</h1>
           {quantityPerItem > 0 && (
-            <div><h1 style={{color: 'red'}}>{quantityPerItem}</h1></div>
+            <div><h1 style={{ color: 'red' }}>{quantityPerItem}</h1></div>
           )}
           <p>Marca: {marca}</p>
           <p>Colores:</p>
@@ -107,18 +109,20 @@ const addToCart = () => {
               shrink: true,
             }}
           />
-{quantityPerItem === 0 ? (
+          {quantityPerItem === 0 ? (
             <Button onClick={() => addToCart()}>Añadir al Carrito</Button>
-): (
-  <Button onClick={() => addToCart()}>Añadir +</Button>
-)}
-{quantityPerItem > 0 && (
-  <Button onClick={() => removePhone(id)}>Quitar -</Button>
-)}
+          ) : (
+            <Button onClick={() => addToCart()}>Añadir +</Button>
+          )}
+          {quantityPerItem > 0 && (
+            <Button onClick={() => removePhone(id)}>Quitar -</Button>
+          )}
         </div>
       </div>
       <div className='phone-data'>
         <p>Procesador: {procesador}</p>
+        <p>Color: {color}</p>
+        <p>Memoria: {memoria}</p>
         <p>Cámara: {camara}</p>
         <p>Cámara Frontal: {camara_frontal}</p>
         <p>Dimensiones: {dimensiones}</p>
