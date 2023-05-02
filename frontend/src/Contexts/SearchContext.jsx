@@ -1,27 +1,32 @@
-import { createContext, useState, useEffect } from 'react';
-//import { useNavigate } from 'react-router-dom';
+import { createContext, useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const SearchContext = createContext(null);
 
 function SearchProvider({ children }) {
   const [search, setSearch] = useState('');
 
-/*   
+  const isInitialRendered = useRef(true)
+
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    if (search !== '') {
+    if (search !== '' && location.pathname !== '/phones') {
       navigate('/phones');
-      setSearch('');
     }
-  }, [search, navigate]);
+  }, [search]);
 
   useEffect(() => {
-    if (search === '') {
-      navigate(-1);
+    if (isInitialRendered.current === true) {
+      isInitialRendered.current = false
+    } else {
+      if (search === '') {
+        navigate(-1);
+      }
     }
-  }, [search, navigate]);
- */
+  }, [search]);
+
 
   return (
     <SearchContext.Provider value={{ search, setSearch }}>

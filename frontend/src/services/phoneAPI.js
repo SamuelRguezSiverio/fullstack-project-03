@@ -16,3 +16,12 @@ export async function getPhonesByBrand(brandId) {
     console.error(error)
   }
 }
+
+export async function getAllBrands() {
+  try {
+    const { data } = await authApi.get(`/brands/`)
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}

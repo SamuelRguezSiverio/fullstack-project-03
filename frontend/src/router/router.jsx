@@ -8,13 +8,24 @@ import Home from '../pages/Home/Home'
 import SinglePhone from '../pages/SinglePhone/SinglePhone'
 import Phones from '../pages/Phones/Phones'
 
+import CartProvider from '../Contexts/CartContext'
+import SearchProvider from '../Contexts/SearchContext'
+
 const router = createBrowserRouter([
   {
     path: '/signup',
     element: <Auth />,
   },
   {
-    element: <App />,
+    element: (
+      <CartProvider>
+        <SearchProvider>
+
+          <App />
+
+        </SearchProvider>
+      </CartProvider>
+    ),
     loader: () => {
       if (!localStorage.getItem('token')) {
         return redirect('/signup')
