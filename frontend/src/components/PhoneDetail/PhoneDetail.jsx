@@ -1,9 +1,10 @@
 import { useContext } from 'react'
 import { Button, TextField, Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material'
 import { CartContext } from '../../Contexts/CartContext'
+import './PhoneDetail.css'
 
 function PhoneDetail(props) {
-  const { id, memoria, marca, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio, color } = props
+  const { id, memoria, marca, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio, color, imgUrl } = props
 
   const [cart, setCart] = useContext(CartContext)
 
@@ -51,8 +52,8 @@ function PhoneDetail(props) {
   return (
     <div className='phone'>
       <div className='main-box-phone'>
-        <div>
-          <img src='https://thumb.pccomponentes.com/w-530-530/articles/1058/10581317/1866-apple-iphone-14-pro-max-256gb-plata-libre-0dd128be-99b7-434b-9158-d8fd7d29cca7.jpg' />
+        <div className='img-single-phones'>
+          <img src={imgUrl} />
         </div>
         <div>
           <h3>{modelo}</h3>

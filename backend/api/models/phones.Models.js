@@ -55,6 +55,10 @@ const Phones = sequelize.define('phones',
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        imgUrl: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     },
     { timestamps: false }
     )
