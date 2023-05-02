@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import PhoneCard from '../../components/PhoneCard/PhoneCard'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Phones.css'
 import { getAllPhones } from '../../services/phoneAPI'
 import { SearchContext } from '../../Contexts/SearchContext'

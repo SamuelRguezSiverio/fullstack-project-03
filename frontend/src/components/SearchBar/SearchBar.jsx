@@ -48,7 +48,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function SearchBar() {
   const {search, setSearch} = useContext(SearchContext);
-
   return (
     <Search>
       <SearchIconWrapper>

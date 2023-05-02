@@ -13,4 +13,4 @@ async function getAllBrands(req, res) {
     }
 }
 
-module.exports = getAllBrands
+module.exports = { getAllBrands }

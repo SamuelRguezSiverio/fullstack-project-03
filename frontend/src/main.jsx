@@ -10,11 +10,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
     <CartProvider>
-
       <SearchProvider>
 
         <RouterProvider router={router} />
+        
       </SearchProvider>
     </CartProvider>
+    
   </React.StrictMode>,
 )

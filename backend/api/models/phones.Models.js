@@ -5,55 +5,55 @@ const Phones = sequelize.define('phones',
     {
         modelo: {
             type: DataTypes.STRING,
-            alloNull: false,
+            allowNull: false,
         },
         color: {
             type: DataTypes.STRING,
-            alloNull: false,
+            allowNull: false,
         },
         memoria: {
             type: DataTypes.STRING,
-            alloNull: false,
+            allowNull: false,
         },
         pantalla: {
             type: DataTypes.STRING,
-            alloNull: false,
+            allowNull: false,
         },
         dimensiones: {
             type: DataTypes.STRING,
-            alloNull: false,
+            allowNull: false,
         },
         procesador: {
             type: DataTypes.STRING,
-            alloNull: false,
+            allowNull: false,
         },
         camara_frontal: {
             type: DataTypes.STRING,
-            alloNull: false,
+            allowNull: false,
         },
         camara: {
             type: DataTypes.TEXT,
-            alloNull: false,
+            allowNull: false,
         },
         peso: {
             type: DataTypes.STRING,
-            alloNull: false,
+            allowNull: false,
         },
         bateria: {
             type: DataTypes.STRING,
-            alloNull: false,
+            allowNull: false,
         },
         extras: {
             type: DataTypes.TEXT,
-            alloNull: true,
+            allowNull: true,
         },
         precio: {
             type: DataTypes.INTEGER,
-            alloNull: false,
+            allowNull: false,
         },
         stock: {
             type: DataTypes.INTEGER,
-            alloNull: false,
+            allowNull: false,
         },
     },
     { timestamps: false }

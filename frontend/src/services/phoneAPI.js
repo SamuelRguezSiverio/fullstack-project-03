@@ -8,9 +8,11 @@ export async function getAllPhones(phoneId = null) {
   return data
 }
 
-
-/* export async function getPhoneById(id) {
-  const { data } = await authApi.get(`/phones/${id}`)
-  console.log(data)
-  return data
-} */
+export async function getPhonesByBrand(brandId) {
+  try {
+    const { data } = await authApi.get(`/brands/${brandId}/phones`)
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}
