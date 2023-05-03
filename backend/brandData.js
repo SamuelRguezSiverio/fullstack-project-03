@@ -7,17 +7,17 @@ async function insertBrands() {
         {
             id: 1,
             brand: 'Apple',
-            imgUrl: 'https://i.pinimg.com/originals/8e/f7/26/8ef726ffe903afa19aa545e23f3b9c72.png'
+            imgUrl: 'http://drive.google.com/uc?export=view&id=19RQqf8IqLhELfSJAF-A_Pjgcks2DWQLe'
         },
         {
             id: 2,
             brand: 'Samsung',
-            imgUrl: 'https://tecstore.pe/media/bannercito_xiaomi.png'
+            imgUrl: 'http://drive.google.com/uc?export=view&id=12M4dTvlBKVB1mKi6cC9Dc-i1LhSElzu8'
         },
         {
             id: 3,
             brand: 'Xiaomi',
-            imgUrl: 'https://i.pinimg.com/originals/ea/bd/aa/eabdaadef69a169117a2900e77bfde9f.jpg',
+            imgUrl: 'http://drive.google.com/uc?export=view&id=1j8i3T9TVoQcxJvNO1gMgqNWJKlLR1YKd',
         }
     ]);
     return brand;

@@ -6,7 +6,7 @@ function Banner() {
 
     const containerStyles = {
         width: "90%",
-        height: "280px",
+        height: "500px",
         margin: "20px",
     };
 
