@@ -6,15 +6,18 @@ async function insertBrands() {
     const brand = await Brand.bulkCreate([
         {
             id: 1,
-            brand: 'Apple'
+            brand: 'Apple',
+            imgUrl: 'https://i.pinimg.com/originals/8e/f7/26/8ef726ffe903afa19aa545e23f3b9c72.png'
         },
         {
             id: 2,
-            brand: 'Samsung'
+            brand: 'Samsung',
+            imgUrl: 'https://tecstore.pe/media/bannercito_xiaomi.png'
         },
         {
             id: 3,
-            brand: 'Xiaomi'
+            brand: 'Xiaomi',
+            imgUrl: 'https://i.pinimg.com/originals/ea/bd/aa/eabdaadef69a169117a2900e77bfde9f.jpg',
         }
     ]);
     return brand;

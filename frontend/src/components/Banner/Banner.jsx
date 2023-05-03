@@ -1,21 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ImageSlider from './ImageSlider';
+import { getAllBrands } from '../../services/phoneAPI';
 
 function Banner() {
-    const slides = [
-        { url: "https://i.pinimg.com/originals/8e/f7/26/8ef726ffe903afa19aa545e23f3b9c72.png", title: "beach" },
-        { url: "https://tecstore.pe/media/bannercito_xiaomi.png", title: "boat" },
-        { url: "https://i.pinimg.com/originals/ea/bd/aa/eabdaadef69a169117a2900e77bfde9f.jpg", title: "forest" },
-    ];
+
     const containerStyles = {
         width: "90%",
         height: "280px",
         margin: "20px",
     };
+
+    const [brands, setBrands] = useState([])
+
+    useEffect(() => {
+        async function getAndSetBrands() {
+            const brands = await getAllBrands()
+            console.log(brands)
+            const mappedBrands = brands.map((brand) => {
+                const midResult = {...brand, url: brand.imgUrl};
+                delete midResult.imgUrl
+                return midResult
+            })
+            setBrands(mappedBrands)
+            console.log(mappedBrands)
+        }
+        getAndSetBrands()
+    }, [])
+
     return (
         <>
             <div style={containerStyles}>
-                <ImageSlider slides={slides} />
+                {brands.length > 0 && <ImageSlider slides={brands} />}
             </div>
         </>
     )

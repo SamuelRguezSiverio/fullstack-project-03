@@ -10,7 +10,7 @@ export async function getAllPhones(phoneId = null) {
 
 export async function getPhonesByBrand(brandId) {
   try {
-    const { data } = await authApi.get(`/brands/${brandId}/phones`)
+    const { data } = await authApi.get(`/phones/brands/${brandId}`)
     return data
   } catch (error) {
     console.error(error)

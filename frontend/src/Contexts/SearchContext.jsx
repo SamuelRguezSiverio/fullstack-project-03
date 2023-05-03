@@ -22,7 +22,9 @@ function SearchProvider({ children }) {
       isInitialRendered.current = false
     } else {
       if (search === '') {
-        navigate(-1);
+        if (location.pathname !== '/') {
+          navigate(-1);
+        }
       }
     }
   }, [search]);
