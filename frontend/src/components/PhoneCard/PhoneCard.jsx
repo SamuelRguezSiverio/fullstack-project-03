@@ -2,7 +2,6 @@ import React from 'react'
 import './PhoneCard.css'
 
 function PhoneCard({ id, modelo, precio, brand, imgUrl }) {
-  console.log(imgUrl)
   return (
     <div className='phone-box-card' key={id}>
       <img src={imgUrl} alt="" />

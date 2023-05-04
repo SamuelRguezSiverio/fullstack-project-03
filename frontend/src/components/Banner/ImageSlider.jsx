@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import {Link} from 'react-router-dom'
 
 const slideStyles = {
   width: "100%",
   height: "100%",
   borderRadius: "10px",
-  backgroundSize: "cover",
+  backgroundSize: "contain",
+  backgroundRepeat: 'no-repeat',
   backgroundPosition: "center",
 };
 
@@ -90,7 +92,7 @@ const ImageSlider = ({ slides, autoPlayInterval = 5000 }) => {
           ❱
         </div>
       </div>
-      <div style={slideStylesWidthBackground}></div>
+      <Link to="/phones"><div style={slideStylesWidthBackground}></div></Link>
       <div style={dotsContainerStyles}>
         {slides.map((slide, slideIndex) => (
           <div

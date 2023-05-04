@@ -39,31 +39,3 @@ function SearchProvider({ children }) {
 
 export default SearchProvider;
 
-
-/* import { createContext, useState, useEffect } from 'react';
-
-export const SearchContext = createContext(null);
-
-function SearchProvider({ children }) {
-  const [search, setSearch] = useState('');
-
-  useEffect(() => {
-    if (search !== '') {
-      window.history.pushState(null, null, '/phones');
-    }
-  }, [search]);
-
-  useEffect(() => {
-    if (search === '') {
-      window.history.back();
-    }
-  }, [search]);
-
-  return (
-    <SearchContext.Provider value={{ search, setSearch }}>
-      {children}
-    </SearchContext.Provider>
-  );
-}
-
-export default SearchProvider; */

@@ -7,7 +7,6 @@ import AfterSales from '../pages/AfterSales/AfterSales'
 import Home from '../pages/Home/Home'
 import SinglePhone from '../pages/SinglePhone/SinglePhone'
 import Phones from '../pages/Phones/Phones'
-
 import CartProvider from '../Contexts/CartContext'
 import SearchProvider from '../Contexts/SearchContext'
 
