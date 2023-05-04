@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Button, TextField, Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material'
+import { Button } from '@mui/material'
 import { CartContext } from '../../Contexts/CartContext'
 import './PhoneDetail.css'
 
@@ -46,8 +46,6 @@ function PhoneDetail(props) {
   }
 
   const quantityPerItem = getQuantityById(id)
-  
-  
 
   return (
     <div className='phone'>
@@ -57,59 +55,10 @@ function PhoneDetail(props) {
         </div>
         <div>
           <h3>{modelo}</h3>
-          <h1>{precio}</h1>
+          <h1>{precio}€</h1>
           {quantityPerItem > 0 && (
             <div><h1 style={{ color: 'red' }}>{quantityPerItem}</h1></div>
           )}
-          <p>Marca: {marca}</p>
-          <p>Colores:</p>
-          <FormControl>
-            <RadioGroup
-              row
-              aria-labelledby="demo-form-control-label-placement"
-              name="position"
-              defaultValue="top"
-            >
-              <FormControlLabel
-                value="azul"
-                control={<Radio />}
-                label="Azul"
-                labelPlacement="top"
-              />
-              <FormControlLabel
-                value="rojo"
-                control={<Radio />}
-                label="Rojo"
-                labelPlacement="top"
-              />
-              <FormControlLabel
-                value="verde"
-                control={<Radio />}
-                label="Verde"
-                labelPlacement="top"
-              />
-              <FormControlLabel
-                value="amarillo"
-                control={<Radio />}
-                label="Amarillo"
-                labelPlacement="top"
-              />
-            </RadioGroup>
-          </FormControl>
-          <p>Almacenamiento:</p>
-          <p>
-            <Button variant="contained">128 GB</Button>
-            <Button variant="contained">256 GB</Button>
-            <Button variant="contained">512 GB</Button>
-          </p>
-          <TextField
-            id="outlined-number"
-            label="Cantidad"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
           {quantityPerItem === 0 ? (
             <Button onClick={() => addToCart()}>Añadir al Carrito</Button>
           ) : (

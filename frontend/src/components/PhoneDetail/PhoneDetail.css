@@ -1,3 +1,11 @@
+.main-box-phone {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+
+
 .img-single-phones {
     width: 30%;
     height: 30%;

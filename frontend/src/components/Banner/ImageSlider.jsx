@@ -92,7 +92,7 @@ const ImageSlider = ({ slides, autoPlayInterval = 5000 }) => {
           ❱
         </div>
       </div>
-      <Link to="/phones"><div style={slideStylesWidthBackground}></div></Link>
+      <Link state={{id : slides[currentIndex]['id']}} to="/phones"><div style={slideStylesWidthBackground}></div></Link>
       <div style={dotsContainerStyles}>
         {slides.map((slide, slideIndex) => (
           <div
