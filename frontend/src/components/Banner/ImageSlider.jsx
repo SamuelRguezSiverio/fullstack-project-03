@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const slideStyles = {
   width: "100%",
@@ -46,8 +46,22 @@ const dotStyle = {
   fontSize: "20px",
 };
 
-const ImageSlider = ({ slides }) => {
+const ImageSlider = ({ slides, autoPlayInterval = 5000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoPlayTimerId, setAutoPlayTimerId] = useState(null);
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      goToNext();
+    }, autoPlayInterval);
+
+    setAutoPlayTimerId(timerId);
+
+    return () => {
+      clearInterval(autoPlayTimerId);
+    };
+  }, [currentIndex]);
+
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
