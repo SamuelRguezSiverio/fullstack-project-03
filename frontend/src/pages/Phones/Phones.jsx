@@ -30,10 +30,9 @@ function Phones() {
     }
     if (id !== undefined) {
       filteredPhones = filteredPhones.filter((phone) => phone.brandId === id)
-      console.log(filteredPhones)
     }
     filteredPhones = filteredPhones.map((phone) => (
-      <Link key={phone.id} to={`/phones/${phone.id}`}>
+      <Link key={phone.id} to={`/phones/${phone.id}`} style={{textDecoration: 'none', color: 'black'}}>
         <PhoneCard {...phone} />
       </Link>
     ))
@@ -46,7 +45,12 @@ function Phones() {
 
   return (
     <div className="main">
+      <h1>SmartPhones</h1>
+      <div className='phone-boxes'>
+
+
       {phones.length > 0 && filterPhones()}
+      </div>
     </div>
   );
 }

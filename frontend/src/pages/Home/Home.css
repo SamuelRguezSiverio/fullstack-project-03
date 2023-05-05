@@ -1,7 +1,20 @@
-.home-box {
+.home-box{
+    width: 100%;
+    text-align: center;
+    background-color: #f7f7f7;
+    font-family: 'Camphor Pro VF', 'Camphor Pro', sans-serif;
+}
+
+
+.box-top-sales{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 73px - 56px);
+    background-color: #f7f7f7;
+    width: 100%;
+    margin-bottom: 50px;
+    text-decoration:underline;
 }
+

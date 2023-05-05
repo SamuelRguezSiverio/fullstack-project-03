@@ -5,9 +5,8 @@ function PhoneCard({ id, modelo, precio, brand, imgUrl }) {
   return (
     <div className='phone-box-card' key={id}>
       <img src={imgUrl} alt="" />
-      <h1>{modelo}</h1>
-      <h3>{precio}€</h3>
-      <h3>{brand}</h3>
+      <h2>{modelo}</h2>
+      <p>{precio}€</p>
     </div>
   )
 }

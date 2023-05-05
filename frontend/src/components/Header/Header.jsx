@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { styled, alpha } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -62,7 +61,7 @@ function DrawerAppBar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{backgroundColor: 'white', color:'black'}}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -88,13 +87,14 @@ function DrawerAppBar(props) {
                 to={`/${item.toLowerCase()}`}
                 state={{ categoryName: item }}
               >
-                <Button key={item} sx={{ color: "#fff" }}>
+                <Button key={item} sx={{ color: "black", marginLeft: '10px', '&:hover': {
+    backgroundColor: 'white', color: 'orange'
+  }, }}>
                   {item}
                 </Button>
               </Link>
             ))}
           </Box>
-          <h5 style={{ marginLeft: '20px' }}>CartITEMS:</h5><span style={{ marginLeft: '5px', backgroundColor: 'red', borderRadius: '30px' }}>{quantity}</span>
         </Toolbar>
       </AppBar>
       <Box component="nav">

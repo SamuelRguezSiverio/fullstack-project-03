@@ -59,6 +59,11 @@ const Phones = sequelize.define('phones',
             type: DataTypes.STRING,
             allowNull: false,
         },
+        topSales: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+            allowNull: false,
+        }
     },
     { timestamps: false }
     )
