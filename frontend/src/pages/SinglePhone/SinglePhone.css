@@ -1,0 +1,7 @@
+.main-box{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    background-color: #f7f7f7;
+}

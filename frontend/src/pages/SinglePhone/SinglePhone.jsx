@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import PhoneDetail from '../../components/PhoneDetail/PhoneDetail'
 import { getAllPhones } from '../../services/phoneAPI'
 import { useParams } from 'react-router-dom'
+import './SinglePhone.css'
 
 function SinglePhone() {
     const [phone, setPhone] = useState({})
@@ -16,7 +17,7 @@ function SinglePhone() {
     }, [id])
 
     return (
-        <div>
+        <div className='main-box'>
             <PhoneDetail {...phone} />
         </div>
     )

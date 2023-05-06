@@ -49,7 +49,38 @@ function PhoneDetail(props) {
 
   return (
     <div className='phone'>
-      <div className='main-box-phone'>
+      <div className='img-single-phone'>
+        <img src={imgUrl} />
+      </div>
+      <div className='content-single-phone'>
+        <div>
+          <h3>{modelo} {memoria} {color}</h3>
+          <h1 style={{color: 'orange'}}>{precio}€</h1>
+          {quantityPerItem > 0 && (
+            <div><h1 style={{ color: 'red' }}>{quantityPerItem}</h1></div>
+          )}
+          {quantityPerItem === 0 ? (
+            <Button onClick={() => addToCart()}>Añadir al Carrito</Button>
+          ) : (
+            <Button onClick={() => addToCart()}>Añadir +</Button>
+          )}
+          {quantityPerItem > 0 && (
+            <Button onClick={() => removePhone(id)}>Quitar -</Button>
+          )}
+        </div>
+        <div>
+          <p>Procesador: {procesador}</p>
+          <p>Cámara: {camara}</p>
+          <p>Cámara Frontal: {camara_frontal}</p>
+          <p>Dimensiones: {dimensiones}</p>
+          <p>Peso: {peso}</p>
+          <p>Batería: {bateria}</p>
+          <p>Pantalla: {pantalla}</p>
+          <p>Extras: {extras}</p>
+        </div>
+      </div>
+      
+      {/* <div className='main-box-phone'>
         <div className='img-single-phones'>
           <img src={imgUrl} />
         </div>
@@ -80,7 +111,7 @@ function PhoneDetail(props) {
         <p>Batería: {bateria}</p>
         <p>Pantalla: {pantalla}</p>
         <p>Extras: {extras}</p>
-      </div>
+      </div> */}
     </div>
   )
 }

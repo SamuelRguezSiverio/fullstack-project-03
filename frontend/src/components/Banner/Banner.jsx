@@ -5,9 +5,9 @@ import { getAllBrands } from '../../services/phoneAPI';
 function Banner() {
 
     const containerStyles = {
-        width: "90%",
-        height: "500px",
-        margin: "20px",
+        width: "100%",
+        height: "300px",
+        margin: "0px",
     };
 
     const [brands, setBrands] = useState([])

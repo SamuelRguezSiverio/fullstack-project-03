@@ -17,6 +17,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../Contexts/CartContext";
 import SearchBar from "../SearchBar/SearchBar";
+import PhoneAndroidTwoToneIcon from '@mui/icons-material/PhoneAndroidTwoTone';
 
 const drawerWidth = 240;
 const navItems = ["Phones", "Cart", "Aftersales"];
@@ -39,7 +40,7 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography variant="h6" sx={{ my: 2, color: 'orange', textDecoration: 'none', fontFamily: 'Dela Gothic One' }}>
         triPHONE
       </Typography>
       <Divider />
@@ -61,14 +62,13 @@ function DrawerAppBar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav" sx={{backgroundColor: 'white', color:'black'}}>
+      <AppBar component="nav" sx={{ backgroundColor: 'white', color: 'black' }}>
         <Toolbar>
           <IconButton
-            color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 2, display: { sm: "none" }, color: 'orange' }}
           >
             <MenuIcon />
           </IconButton>
@@ -77,7 +77,7 @@ function DrawerAppBar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <Link to="/"> triPHONE</Link>
+            <Link to="/" style={{ color: 'orange', textDecoration: 'none', fontFamily: 'Dela Gothic One' }}>triPHONE<PhoneAndroidTwoToneIcon/></Link>
           </Typography>
           <SearchBar />
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
@@ -87,9 +87,11 @@ function DrawerAppBar(props) {
                 to={`/${item.toLowerCase()}`}
                 state={{ categoryName: item }}
               >
-                <Button key={item} sx={{ color: "black", marginLeft: '10px', '&:hover': {
-    backgroundColor: 'white', color: 'orange'
-  }, }}>
+                <Button key={item} sx={{
+                  color: "black", marginLeft: '10px', '&:hover': {
+                    backgroundColor: 'white', color: 'orange'
+                  },
+                }}>
                   {item}
                 </Button>
               </Link>
