@@ -1,10 +1,11 @@
 import { useContext } from 'react'
-import { Button } from '@mui/material'
+import { Button, Box } from '@mui/material'
 import { CartContext } from '../../Contexts/CartContext'
 import './PhoneDetail.css'
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 
 function PhoneDetail(props) {
-  const { id, memoria, marca, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio, color, imgUrl } = props
+  const { id, memoria, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio, color, imgUrl } = props
 
   const [cart, setCart] = useContext(CartContext)
 
@@ -20,7 +21,7 @@ function PhoneDetail(props) {
           }
         })
       } else {
-        return [...currPhones, { id, quantity: 1, precio, modelo, memoria, color }]
+        return [...currPhones, { id, quantity: 1, precio, modelo, memoria, color, imgUrl }]
       }
     })
   }
@@ -54,64 +55,67 @@ function PhoneDetail(props) {
       </div>
       <div className='content-single-phone'>
         <div>
-          <h3>{modelo} {memoria} {color}</h3>
-          <h1 style={{color: 'orange'}}>{precio}€</h1>
-          {quantityPerItem > 0 && (
-            <div><h1 style={{ color: 'red' }}>{quantityPerItem}</h1></div>
-          )}
-          {quantityPerItem === 0 ? (
-            <Button onClick={() => addToCart()}>Añadir al Carrito</Button>
-          ) : (
-            <Button onClick={() => addToCart()}>Añadir +</Button>
-          )}
-          {quantityPerItem > 0 && (
-            <Button onClick={() => removePhone(id)}>Quitar -</Button>
-          )}
+          <h3 style={{ marginBottom: '10px' }}>{modelo} {memoria} {color}</h3>
+          <h1 style={{ color: 'orange', marginBottom: 10 }}>{precio}€</h1>
+          <div className='cart-buttons'>
+            {quantityPerItem === 0 ? (
+              <Button
+                sx={{
+                  p: "1", b: "0", color: "white",
+                  backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px", marginBottom: '20px'
+                  , fontWeight: "600"
+                }}
+                onClick={() => addToCart()}
+              >
+                <ShoppingCartRoundedIcon sx={{ marginRight: '10px' }} />Add to cart
+              </Button>
+            ) :
+              (
+                <Button
+                  sx={{
+                    p: "1", b: "0", color: "white",
+                    backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px",
+                    fontWeight: "600"
+                  }}
+                  onClick={() => removePhone(id)}
+                >
+                  -
+                </Button>
+              )}
+            {quantityPerItem > 0 && (
+              <Box sx={{
+                display: 'flex', p: '0', b: '0', color: 'orange', width: '50px', justifyContent: 'center', alignItems: 'center', fontSize: "20px",
+                fontWeight: "600"
+              }}>
+                {quantityPerItem}
+              </Box>
+            )}
+            {quantityPerItem > 0 && (
+              <Button
+                sx={{
+                  p: "1", b: "0", color: "white",
+                  backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px",
+                  fontWeight: "600"
+                }}
+                fontWeight="lg"
+                onClick={() => addToCart()}
+              >+
+              </Button>
+            )}
+          </div>
         </div>
         <div>
-          <p>Procesador: {procesador}</p>
-          <p>Cámara: {camara}</p>
-          <p>Cámara Frontal: {camara_frontal}</p>
-          <p>Dimensiones: {dimensiones}</p>
-          <p>Peso: {peso}</p>
-          <p>Batería: {bateria}</p>
-          <p>Pantalla: {pantalla}</p>
-          <p>Extras: {extras}</p>
+          <h3>Características</h3>
+          <p><b>Procesador:</b> {procesador}</p>
+          <p><b>Cámara:</b> {camara}</p>
+          <p><b>Cámara Frontal:</b> {camara_frontal}</p>
+          <p><b>Dimensiones:</b> {dimensiones}</p>
+          <p><b>Peso:</b> {peso}</p>
+          <p><b>Batería:</b> {bateria}</p>
+          <p><b>Pantalla:</b> {pantalla}</p>
+          <p><b>Extras:</b> {extras}</p>
         </div>
       </div>
-      
-      {/* <div className='main-box-phone'>
-        <div className='img-single-phones'>
-          <img src={imgUrl} />
-        </div>
-        <div>
-          <h3>{modelo}</h3>
-          <h1>{precio}€</h1>
-          {quantityPerItem > 0 && (
-            <div><h1 style={{ color: 'red' }}>{quantityPerItem}</h1></div>
-          )}
-          {quantityPerItem === 0 ? (
-            <Button onClick={() => addToCart()}>Añadir al Carrito</Button>
-          ) : (
-            <Button onClick={() => addToCart()}>Añadir +</Button>
-          )}
-          {quantityPerItem > 0 && (
-            <Button onClick={() => removePhone(id)}>Quitar -</Button>
-          )}
-        </div>
-      </div>
-      <div className='phone-data'>
-        <p>Procesador: {procesador}</p>
-        <p>Color: {color}</p>
-        <p>Memoria: {memoria}</p>
-        <p>Cámara: {camara}</p>
-        <p>Cámara Frontal: {camara_frontal}</p>
-        <p>Dimensiones: {dimensiones}</p>
-        <p>Peso: {peso}</p>
-        <p>Batería: {bateria}</p>
-        <p>Pantalla: {pantalla}</p>
-        <p>Extras: {extras}</p>
-      </div> */}
     </div>
   )
 }

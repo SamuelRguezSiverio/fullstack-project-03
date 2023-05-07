@@ -33,6 +33,12 @@
     margin-left: 30px;
 }
 
+.cart-buttons {
+    display: flex;
+}
+
+
+
 @media (max-width: 600px) {
     .phone {
         flex-direction: column;
@@ -47,6 +53,8 @@
 
     .img-single-phone>img {
         width: 80%;
+        height: 80%;
+        margin-bottom: 40px;
     }
 
     .content-single-phone {

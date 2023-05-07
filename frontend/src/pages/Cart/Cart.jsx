@@ -14,12 +14,12 @@ function Cart() {
     return acc + curr.quantity * curr.precio
   }, 0)
 
-  const addToCart = () => {
+  const addToCart = (id) => {
     setCart((currPhones) => {
-      const isPhoneFound = currPhones.find((phone) => phone.id)
+      const isPhoneFound = currPhones.find((phone) => phone.id === id)
       if (isPhoneFound) {
         return currPhones.map((phone) => {
-          if (phone.id) {
+          if (phone.id === id) {
             return { ...phone, quantity: phone.quantity + 1 }
           } else {
             return phone
@@ -47,18 +47,37 @@ function Cart() {
 
   return (
     <div className='main-cart'>
-      {cart.map((phone, idx) => (
-        <div key={idx} className='phone-cart-box'>
-          <img src='https://thumb.pccomponentes.com/w-530-530/articles/1058/10581317/1866-apple-iphone-14-pro-max-256gb-plata-libre-0dd128be-99b7-434b-9158-d8fd7d29cca7.jpg' />
-          <span>{phone.modelo} {phone.memoria} {phone.color}</span><br></br>
-          <span>Cantidad: {phone.quantity}</span>
-          <Button onClick={() => addToCart()}>+</Button>
-          <Button onClick={() => removePhone(phone.id)}>-</Button>
+      {cart.map((phone) => (
+        <div key={phone.id} className='phone-cart-box'>
+          <div className='img-cart'>
+            <img src={phone.imgUrl} />
+          </div>
+          <div className='data-cart'>
+            <h3>{phone.modelo} {phone.memoria} {phone.color}</h3><br></br>
+            <div>
+              <span><b>Cantidad: {phone.quantity}</b></span>
+              <Button size='small' sx={{
+                p: "1", b: "0", mx: '20px', color: "white",
+                backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px",
+                fontWeight: "600"
+              }} onClick={() => removePhone(phone.id)}>-</Button>
+
+              <Button size='small' sx={{
+                p: "1", b: "0", color: "white",
+                backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px", fontWeight: "600"
+              }} onClick={() => addToCart(phone.id)}>+</Button>
+            </div>
+          </div>
         </div>
       ))}
       {quantity === 0 ? (<h1>Empty Cart</h1>) : null}
       <div>Items in Cart: {quantity}</div>
       <div>Total: {totalPrice} €</div>
+      <Button size='small' sx={{
+                p: "1", b: "0", mx: '20px', color: "white",
+                backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px",
+                fontWeight: "600"
+              }}>Checkout</Button>
     </div>
   )
 }
