@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { getAllClients } from '../../services/clientsApi';
+import { useEffect, useState, useContext } from 'react';
+import { getClientsByAccountManager } from '../../services/clientsApi';
 import ClientsList from '../../components/ClientsList/ClientsList';
 import { CartContext } from '../../Contexts/CartContext';
 import './AfterSales.css'
@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 function AfterSales() {
   const [clients, setClients] = useState([]);
-
   const [cart] = useContext(CartContext);
   const navigate = useNavigate();
 
@@ -20,7 +19,7 @@ function AfterSales() {
 
   useEffect(() => {
     async function getAndSetClients() {
-      const clients = await getAllClients();
+      const clients = await getClientsByAccountManager();
       setClients(clients);
     }
     getAndSetClients();

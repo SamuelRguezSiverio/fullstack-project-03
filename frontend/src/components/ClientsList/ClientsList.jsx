@@ -1,8 +1,8 @@
 import React from 'react';
 
-function ClientsList({ name, nif, email, mobile, owner, city, address }) {
+function ClientsList({ id, accountManagerId, name, nif, email, mobile, owner, city, address }) {
   return (
-    <tr>
+    <tr key={id}>
       <td>{name}</td>
       <td>{nif}</td>
       <td>{email}</td>

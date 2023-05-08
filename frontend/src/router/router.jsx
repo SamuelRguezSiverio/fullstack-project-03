@@ -12,7 +12,7 @@ import SearchProvider from '../Contexts/SearchContext'
 
 const router = createBrowserRouter([
   {
-    path: '/signup',
+    path: '/login',
     element: <Auth />,
   },
   {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     ),
     loader: () => {
       if (!localStorage.getItem('token')) {
-        return redirect('/signup')
+        return redirect('/login')
       } else {
         return null
       }

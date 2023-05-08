@@ -14,8 +14,12 @@ import {
   Typography,
   TextField
 } from '@mui/material'
+import './LoginCard.css'
+import imgLogin from '../../assets/login.png'
+import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 
-function LoginCard({ changeToSignup }) {
+
+function LoginCard() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
@@ -48,12 +52,15 @@ function LoginCard({ changeToSignup }) {
   }
 
   return (
-    <Card sx={{ maxWidth: '500px' }}>
-      <CardHeader title="Login"></CardHeader>
+
+    <div className='container'>   
+     <div className='infoLogin'>
+     <Card sx={{ maxWidth: '500px' }}>
+      <CardHeader sx={{color: 'orange'}} title="triPHONE"></CardHeader>
       <CardContent>
         <TextField
           onChange={(e) => updateEmail(e.target.value)}
-          sx={{ marginBottom: '20px' }}
+          sx={{ marginBottom: '20px'}}
           label="Email"
           variant="outlined"
           fullWidth
@@ -75,12 +82,18 @@ function LoginCard({ changeToSignup }) {
       </CardContent>
       <Divider />
       <CardActions sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <Button onClick={() => changeToSignup()}>Register</Button>
-        <Button onClick={() => onLogin()} color="success">
+        <Button onClick={() => onLogin()} sx={{color: 'orange'}}>
           Login
         </Button>
       </CardActions>
     </Card>
+      </div>
+      <div className='imageLogin'>
+        <img src={imgLogin} alt="Login IMG"/>
+      </div>
+    </div>
+
+
   )
 }
 

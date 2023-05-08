@@ -1,7 +1,7 @@
 import authApi from './authAPIConfig'
 
 export async function getAllPhones(phoneId = null) {
-  const { data } = await authApi.get('/phones/')
+  const { data } = await authApi.get('/phones/', {headers : {token : localStorage.getItem('token')}})
   if (phoneId) {
     return data.find(phone => phone.id === parseInt(phoneId))
   }
@@ -10,7 +10,7 @@ export async function getAllPhones(phoneId = null) {
 
 export async function getPhonesByBrand(brandId) {
   try {
-    const { data } = await authApi.get(`/phones/brands/${brandId}`)
+    const { data } = await authApi.get(`/phones/brands/${brandId}`, {headers : {token : localStorage.getItem('token')}})
     return data
   } catch (error) {
     console.error(error)
@@ -19,7 +19,7 @@ export async function getPhonesByBrand(brandId) {
 
 export async function getAllBrands() {
   try {
-    const { data } = await authApi.get(`/brands/`)
+    const { data } = await authApi.get(`/brands/`, {headers : {token : localStorage.getItem('token')}})
     return data
   } catch (error) {
     console.error(error)
