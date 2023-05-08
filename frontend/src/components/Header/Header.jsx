@@ -20,7 +20,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import PhoneAndroidTwoToneIcon from '@mui/icons-material/PhoneAndroidTwoTone';
 
 const drawerWidth = 240;
-const navItems = ["Phones", "Cart", "Aftersales"];
+const navItems = ["Phones", "Cart"];
 
 function DrawerAppBar(props) {
 
@@ -29,7 +29,6 @@ function DrawerAppBar(props) {
   const quantity = cart.reduce((acc, curr) => {
     return acc + curr.quantity
   }, 0)
-
 
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);

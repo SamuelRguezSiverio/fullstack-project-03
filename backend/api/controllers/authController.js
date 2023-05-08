@@ -31,7 +31,7 @@ async function signup(req, res) {
     req.body.password = bcrypt.hashSync(req.body.password, 10)
 
     const user = await AccountManager.create(req.body, {
-      fields: ['name', 'surname', 'dni', 'email', 'password', 'city'] //Definimos los campos que pueden rellenar.
+      fields: ['name', 'surname', 'dni', 'email', 'password', 'city']
     })
 
     const payload = { email: user.email }

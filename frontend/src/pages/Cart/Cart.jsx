@@ -3,8 +3,9 @@ import { CartContext } from '../../Contexts/CartContext'
 import { Button } from '@mui/material'
 import './Cart.css'
 
+
 function Cart() {
-  const [cart, setCart] = useContext(CartContext)
+  const [cart, setCart, onCheckout] = useContext(CartContext)
 
   const quantity = cart.reduce((acc, curr) => {
     return acc + curr.quantity
@@ -73,11 +74,11 @@ function Cart() {
       {quantity === 0 ? (<h1>Empty Cart</h1>) : null}
       <div>Items in Cart: {quantity}</div>
       <div>Total: {totalPrice} €</div>
-      <Button size='small' sx={{
-                p: "1", b: "0", mx: '20px', color: "white",
-                backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px",
-                fontWeight: "600"
-              }}>Checkout</Button>
+      <Button onClick={onCheckout} size='small' sx={{
+        p: "1", b: "0", mx: '20px', color: "white",
+        backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px",
+        fontWeight: "600"
+      }}>Checkout</Button>
     </div>
   )
 }
