@@ -8,7 +8,8 @@ function addRelationsToModels() {
     try {
         Brand.hasMany(Phones)
         Phones.belongsTo(Brand)
-
+        AccountManager.hasMany(Client)
+        Client.belongsTo(AccountManager)
         console.log("Relations succesfully added")
     }
     catch (error) {

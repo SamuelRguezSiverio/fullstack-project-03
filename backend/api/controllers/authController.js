@@ -43,7 +43,21 @@ async function signup(req, res) {
   }
 }
 
+async function getAllAccountManagers(req, res) {
+  try {
+      const accountManager = await AccountManager.findAll({
+          where: req.query
+      })
+      return !accountManager
+          ? res.status(404).send("Not found")
+          : res.status(200).json(accountManager)
+  } catch (error) {
+      return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   login,
-  signup
+  signup,
+  getAllAccountManagers
 }
