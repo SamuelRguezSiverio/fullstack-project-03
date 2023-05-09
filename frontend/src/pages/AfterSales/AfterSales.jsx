@@ -3,7 +3,7 @@ import { getClientsByAccountManager } from '../../services/clientsApi'
 import { CartContext } from '../../Contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
 
-import './Aftersales.css'
+import './AfterSales.css'
 
 function AfterSales() {
   const [clients, setClients] = useState([]);
