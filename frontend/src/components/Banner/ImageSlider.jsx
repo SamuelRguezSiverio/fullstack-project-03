@@ -4,33 +4,32 @@ import {Link} from 'react-router-dom'
 const slideStyles = {
   width: "100%",
   height: "100%",
-  borderRadius: "10px",
   backgroundSize: "contain",
   backgroundRepeat: 'no-repeat',
   backgroundPosition: "center",
 };
 
-const rightArrowStyles = {
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0, -50%)",
-  right: "32px",
-  fontSize: "45px",
-  color: "#fff",
-  zIndex: 1,
-  cursor: "pointer",
-};
+// const rightArrowStyles = {
+//   position: "absolute",
+//   top: "50%",
+//   transform: "translate(0, -50%)",
+//   right: "32px",
+//   fontSize: "45px",
+//   color: "#fff",
+//   zIndex: 1,
+//   cursor: "pointer",
+// };
 
-const leftArrowStyles = {
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0, -50%)",
-  left: "32px",
-  fontSize: "45px",
-  color: "#fff",
-  zIndex: 1,
-  cursor: "pointer",
-};
+// const leftArrowStyles = {
+//   position: "absolute",
+//   top: "50%",
+//   transform: "translate(0, -50%)",
+//   left: "32px",
+//   fontSize: "45px",
+//   color: "#fff",
+//   zIndex: 1,
+//   cursor: "pointer",
+// };
 
 const sliderStyles = {
   position: "relative",
@@ -84,15 +83,15 @@ const ImageSlider = ({ slides, autoPlayInterval = 5000 }) => {
 
   return (
     <div style={sliderStyles}>
-      <div>
+      {/* <div>
         <div onClick={goToPrevious} style={leftArrowStyles}>
           ❰
         </div>
         <div onClick={goToNext} style={rightArrowStyles}>
           ❱
         </div>
-      </div>
-      <Link state={{id : slides[currentIndex]['id']}} to="/phones"><div style={slideStylesWidthBackground}></div></Link>
+      </div> */}
+      <Link state={{id : slides[currentIndex]['id']}} to="/smartphones"><div style={slideStylesWidthBackground}></div></Link>
       <div style={dotsContainerStyles}>
         {slides.map((slide, slideIndex) => (
           <div

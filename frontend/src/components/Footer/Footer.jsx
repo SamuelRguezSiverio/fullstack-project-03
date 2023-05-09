@@ -14,7 +14,7 @@ function Footer() {
         justifyContent: 'center',
         alignItems: 'center',
       }} textAlign={'center'} py={2} m={0} color={'white'}>
-        <Typography>© triPHONE {year} - All Rights Reserved</Typography>
+        <Typography>© triPHONE {year} - Todos los derechos reservados</Typography>
       </Box>
     </footer>
   )

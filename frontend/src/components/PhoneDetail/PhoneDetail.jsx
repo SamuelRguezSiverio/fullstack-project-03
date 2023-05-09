@@ -1,8 +1,7 @@
 import { useContext } from 'react'
-import { Button, Box } from '@mui/material'
+import { Box } from '@mui/material'
 import { CartContext } from '../../Contexts/CartContext'
 import './PhoneDetail.css'
-import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 
 function PhoneDetail(props) {
   const { id, memoria, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio, color, imgUrl } = props
@@ -59,48 +58,21 @@ function PhoneDetail(props) {
           <h1 style={{ color: 'orange', marginBottom: 10 }}>{precio}€</h1>
           <div className='cart-buttons'>
             {quantityPerItem === 0 ? (
-              <Button
-                sx={{
-                  p: "1", b: "0", color: "white",
-                  backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px", marginBottom: '20px'
-                  , fontWeight: "600"
-                }}
-                onClick={() => addToCart()}
-              >
-                <ShoppingCartRoundedIcon sx={{ marginRight: '10px' }} />Add to cart
-              </Button>
+              <button className='button-detail-add' onClick={() => addToCart()}>Añadir al Carrito</button>
             ) :
               (
-                <Button
-                  sx={{
-                    p: "1", b: "0", color: "white",
-                    backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px",
-                    fontWeight: "600"
-                  }}
-                  onClick={() => removePhone(id)}
-                >
-                  -
-                </Button>
+                <button className='button-detail-qty' onClick={() => removePhone(id)}>-</button>
               )}
             {quantityPerItem > 0 && (
               <Box sx={{
-                display: 'flex', p: '0', b: '0', color: 'orange', width: '50px', justifyContent: 'center', alignItems: 'center', fontSize: "20px",
+                display: 'flex', marginLeft:'10px', marginRight:'0px', b: '0', color: 'orange', width: '20px',  fontSize: "20px",
                 fontWeight: "600"
               }}>
                 {quantityPerItem}
               </Box>
             )}
             {quantityPerItem > 0 && (
-              <Button
-                sx={{
-                  p: "1", b: "0", color: "white",
-                  backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px",
-                  fontWeight: "600"
-                }}
-                fontWeight="lg"
-                onClick={() => addToCart()}
-              >+
-              </Button>
+              <button className='button-detail-qty' onClick={() => addToCart()}>+</button>
             )}
           </div>
         </div>

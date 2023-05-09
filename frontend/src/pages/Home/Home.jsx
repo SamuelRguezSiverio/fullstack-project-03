@@ -19,7 +19,7 @@ function Home() {
   function filterTopSalesPhones() {
     const topSales = phones.filter((phone) => phone.topSales === true)
     return topSales.map((phone) => ( 
-      <Link key={phone.id} to={`/phones/${phone.id}`} style={{textDecoration: 'none', color: 'black'}}>
+      <Link key={phone.id} to={`/smartphones/${phone.id}`} style={{textDecoration: 'none', color: 'black'}}>
     <PhoneCard key={phone.id} {...phone} />
     </Link>
     ))
@@ -29,7 +29,7 @@ function Home() {
     <div className='home-box'>
       <Banner />
       <br></br>
-      <h1>TopSales</h1>
+      <h1>Top Ventas</h1>
       <div className='box-top-sales'>
         {filterTopSalesPhones()}
       </div>

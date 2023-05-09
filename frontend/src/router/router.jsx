@@ -38,19 +38,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/phones',
+        path: '/smartphones',
         element: <Phones />,
       },
       {
-        path: '/phones/:id',
+        path: '/smartphones/:id',
         element: <SinglePhone />,
       },
       {
-        path: '/cart',
+        path: '/carrito',
         element: <Cart />,
       },
       {
-        path: '/aftersales',
+        path: '/postventa',
         element: <AfterSales />,
       }
     ]

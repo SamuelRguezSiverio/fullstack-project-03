@@ -13,7 +13,7 @@ function SearchProvider({ children }) {
 
   useEffect(() => {
     if (search !== '' && location.pathname !== '/phones') {
-      navigate('/phones');
+      navigate('/smartphones');
     }
   }, [search]);
 

@@ -7,9 +7,6 @@ import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -17,11 +14,10 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../Contexts/CartContext";
 import SearchBar from "../SearchBar/SearchBar";
-import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
-const navItems = ["Phones", "Cart", "Log out"];
+const navItems = ["Smartphones", "Carrito", "Log out"];
 
 function DrawerAppBar(props) {
   const [cart, setCart] = useContext(CartContext);
@@ -41,7 +37,7 @@ function DrawerAppBar(props) {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem('cart')
-    navigate("/signup");
+    navigate("/login");
   };
 
   const drawer = (
@@ -58,21 +54,51 @@ function DrawerAppBar(props) {
         triPHONE
       </Typography>
       <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-            <Link
+      <List sx={{display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center'}}>
+      {navItems.map((item) => {
+              if (item === "Log out") {
+                return (
+                  <Button
                     key={item}
-                    style={{textDecoration: 'none', color: 'orange'}}
+                    sx={{
+                      color: "black",
+                      marginLeft: "10px",
+                      "&:hover": {
+                        backgroundColor: "white",
+                        color: "orange",
+                      },
+                      cursor: "pointer",
+                    }}
+                    onClick={handleLogout}
+                  >
+                    {item}
+                  </Button>
+                );
+              } else {
+                return (
+                  <Link
+                    key={item}
                     to={`/${item.toLowerCase()}`}
                     state={{ categoryName: item }}
                   >
-              <ListItemText primary={item} />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-        ))}
+                    <Button
+                      key={item}
+                      sx={{
+                        color: "black",
+                        marginBottom: '20px',
+                        marginLeft: "10px",
+                        "&:hover": {
+                          backgroundColor: "white",
+                          color: "orange",
+                        },
+                      }}
+                    >
+                      {item}
+                    </Button>
+                  </Link>
+                );
+              }
+            })}
       </List>
     </Box>
   );
@@ -107,7 +133,7 @@ function DrawerAppBar(props) {
               }}
             >
               triPHONE
-              <PhoneAndroidTwoToneIcon />
+
             </Link>
           </Typography>
           <SearchBar />
@@ -165,7 +191,7 @@ function DrawerAppBar(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, 
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },

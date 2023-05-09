@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { CartContext } from '../../Contexts/CartContext'
-import { Button } from '@mui/material'
 import './Cart.css'
 
 
@@ -48,6 +47,8 @@ function Cart() {
 
   return (
     <div className='main-cart'>
+        <h1>Mi Cesta</h1>
+      <div>Productos en el carrito: {quantity}</div>
       {cart.map((phone) => (
         <div key={phone.id} className='phone-cart-box'>
           <div className='img-cart'>
@@ -56,29 +57,16 @@ function Cart() {
           <div className='data-cart'>
             <h3>{phone.modelo} {phone.memoria} {phone.color}</h3><br></br>
             <div>
-              <span><b>Cantidad: {phone.quantity}</b></span>
-              <Button size='small' sx={{
-                p: "1", b: "0", mx: '20px', color: "white",
-                backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px",
-                fontWeight: "600"
-              }} onClick={() => removePhone(phone.id)}>-</Button>
+              <span><b>Cantidad:</b></span><button className='button-cart-qty' onClick={() => removePhone(phone.id)}>-</button><span className='qty-text'>{phone.quantity}</span><button className='button-cart-qty' onClick={() => addToCart(phone.id)}>+</button>
 
-              <Button size='small' sx={{
-                p: "1", b: "0", color: "white",
-                backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px", fontWeight: "600"
-              }} onClick={() => addToCart(phone.id)}>+</Button>
             </div>
           </div>
         </div>
       ))}
-      {quantity === 0 ? (<h1>Empty Cart</h1>) : null}
-      <div>Items in Cart: {quantity}</div>
-      <div>Total: {totalPrice} €</div>
-      <Button onClick={onCheckout} size='small' sx={{
-        p: "1", b: "0", mx: '20px', color: "white",
-        backgroundColor: 'orange', '&:hover': { color: 'orange', backgroundColor: '#f7f7f7' }, fontSize: "20px",
-        fontWeight: "600"
-      }}>Checkout</Button>
+      <div className='cart-resume'>
+        <h3>Total: {totalPrice} €</h3>
+        {quantity === 0 ? '' : <button className='button-cart' onClick={onCheckout}>Continuar</button>}
+      </div>
     </div>
   )
 }

@@ -17,10 +17,8 @@ export default function CartProvider({ children }) {
 
     function onCheckout() {
         if (cart.length > 0) {
-            navigate('/aftersales')
-        } else {
-            alert('Cart is empty you fucking bastard')
-        }
+            navigate('/postventa')
+        } 
     }
 
     return (
