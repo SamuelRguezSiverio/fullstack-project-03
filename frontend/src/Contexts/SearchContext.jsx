@@ -17,18 +17,6 @@ function SearchProvider({ children }) {
     }
   }, [search]);
 
-  // useEffect(() => {
-  //   if (isInitialRendered.current === true) {
-  //     isInitialRendered.current = false
-  //   } else {
-  //     if (search === '') {
-  //       if (location.pathname !== '/') {
-  //         navigate(-1);
-  //       }
-  //     }
-  //   }
-  // }, [search]);
-
 
   return (
     <SearchContext.Provider value={{ search, setSearch }}>

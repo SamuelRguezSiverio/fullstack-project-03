@@ -51,9 +51,9 @@
     color: black;
     z-index: 1;
     margin-bottom: 30px;
-   }
-   
-   .button-detail-add:before {
+}
+
+.button-detail-add:before {
     content: "";
     position: absolute;
     left: 50%;
@@ -66,9 +66,9 @@
     display: block;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
-   }
-   
-   .button-detail-add:after {
+}
+
+.button-detail-add:after {
     content: "";
     position: absolute;
     left: 55%;
@@ -81,26 +81,26 @@
     display: block;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
-   }
-   
-   .button-detail-add:hover {
+}
+
+.button-detail-add:hover {
     color: #ffffff;
     border: 1px solid orange;
-   }
-   
-   .button-detail-add:hover:before {
+}
+
+.button-detail-add:hover:before {
     top: -35%;
     background-color: orange;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-   }
-   
-   .button-detail-add:hover:after {
+}
+
+.button-detail-add:hover:after {
     top: -45%;
     background-color: orange;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-   }
+}
 
-   .button-detail-qty {
+.button-detail-qty {
     display: inline-block;
     padding: 2px 12px;
     border: 1px solid #4f4f4f;
@@ -114,9 +114,9 @@
     color: black;
     z-index: 1;
     margin-bottom: 30px;
-   }
-   
-   .button-detail-qty:before {
+}
+
+.button-detail-qty:before {
     content: "";
     position: absolute;
     left: 50%;
@@ -129,9 +129,9 @@
     display: block;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
-   }
-   
-   .button-detail-qty:after {
+}
+
+.button-detail-qty:after {
     content: "";
     position: absolute;
     left: 55%;
@@ -144,24 +144,107 @@
     display: block;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
-   }
-   
-   .button-detail-qty:hover {
+}
+
+.button-detail-qty:hover {
     color: #ffffff;
     border: 1px solid orange;
-   }
-   
-   .button-detail-qty:hover:before {
+}
+
+.button-detail-qty:hover:before {
     top: -35%;
     background-color: orange;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-   }
-   
-   .button-detail-qty:hover:after {
+}
+
+.button-detail-qty:hover:after {
     top: -45%;
     background-color: orange;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-   }
+}
+
+
+.product-added {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: orange;
+    color: white;
+    padding: 0px 10px;
+    height: 40px;
+    border-radius: 10px;
+    margin-right: 10px;
+    
+}
+
+.button-detail-trash {
+    display: inline-block;
+    padding: 4.6px 8px;
+    border: 1px solid #4f4f4f;
+    background-color: white;
+    border-radius: 4px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    font-weight: bold;
+    overflow: hidden;
+    color: black;
+    z-index: 1;
+}
+
+.button-detail-trash:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button-detail-trash:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: red;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button-detail-trash:hover {
+    color: #ffffff;
+    border: 1px solid red;
+}
+
+.button-detail-trash:hover:before {
+    top: -35%;
+    background-color: red;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button-detail-trash:hover:after {
+    top: -45%;
+    background-color: red;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.breadcrumbs-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
 @media (max-width: 600px) {
     .phone {

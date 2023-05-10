@@ -15,12 +15,15 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../Contexts/CartContext";
 import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
+import Badge from "@mui/material/Badge";
+
 
 const drawerWidth = 240;
 const navItems = ["Smartphones", "Carrito", "Log out"];
 
 function DrawerAppBar(props) {
   const [cart, setCart] = useContext(CartContext);
+
   const navigate = useNavigate();
 
   const quantity = cart.reduce((acc, curr) => {
@@ -51,54 +54,73 @@ function DrawerAppBar(props) {
           fontFamily: "Dela Gothic One",
         }}
       >
-        triPHONE
+        <Link to='/' sx={{textDecoration: 'none', color: 'orange'}}>triPHONE</Link>
       </Typography>
       <Divider />
-      <List sx={{display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center'}}>
-      {navItems.map((item) => {
-              if (item === "Log out") {
-                return (
-                  <Button
-                    key={item}
-                    sx={{
-                      color: "black",
-                      marginLeft: "10px",
-                      "&:hover": {
-                        backgroundColor: "white",
-                        color: "orange",
-                      },
-                      cursor: "pointer",
-                    }}
-                    onClick={handleLogout}
-                  >
-                    {item}
-                  </Button>
-                );
-              } else {
-                return (
-                  <Link
-                    key={item}
-                    to={`/${item.toLowerCase()}`}
-                    state={{ categoryName: item }}
-                  >
-                    <Button
-                      key={item}
-                      sx={{
-                        color: "black",
-                        marginBottom: '20px',
-                        marginLeft: "10px",
-                        "&:hover": {
-                          backgroundColor: "white",
-                          color: "orange",
-                        },
-                      }}
-                    >
-                      {item}
-                    </Button>
-                  </Link>
-                );
-              }
-            })}
+      <List sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        {navItems.map((item) => {
+          if (item === "Log out") {
+            return (
+              <Button
+                key={item}
+                sx={{
+                  color: "black",marginTop:'10px',
+                  marginLeft: "0px",
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "orange",
+                  },
+                  cursor: "pointer",
+                }}
+                onClick={handleLogout}
+              >
+                {item}
+              </Button>
+            );
+          } if (item === "Carrito") {
+            return <Link
+            key={item}
+            to={`/${item.toLowerCase()}`}
+            state={{ categoryName: item }}
+          >
+            <Button
+              key={item}
+              sx={{
+                color: "black",
+                "&:hover": {
+                  backgroundColor: "white",
+                  color: "orange",
+                },
+              }}
+            >
+              {item}
+            </Button>
+            <Badge badgeContent={quantity} color="error" sx={{top: '-7px'}}/>
+          </Link>
+          }else {
+            return (
+              <Link
+                key={item}
+                to={`/${item.toLowerCase()}`}
+                state={{ categoryName: item }}
+              >
+                <Button
+                  key={item}
+                  sx={{
+                    color: "black", marginBottom:'10px',
+                    marginLeft: "10px",
+                    "&:hover": {
+                      backgroundColor: "white",
+                      color: "orange",
+                    },
+                  }}
+                >
+                  {item}
+                </Button>
+              </Link>
+            );
+          }
+        })}
       </List>
     </Box>
   );
@@ -145,7 +167,7 @@ function DrawerAppBar(props) {
                     key={item}
                     sx={{
                       color: "black",
-                      marginLeft: "10px",
+                      marginLeft: "20px",
                       "&:hover": {
                         backgroundColor: "white",
                         color: "orange",
@@ -157,6 +179,27 @@ function DrawerAppBar(props) {
                     {item}
                   </Button>
                 );
+              } if (item === "Carrito") {
+                return <Link
+                key={item}
+                to={`/${item.toLowerCase()}`}
+                state={{ categoryName: item }}
+              >
+                <Button
+                  key={item}
+                  sx={{
+                    color: "black",
+                    marginLeft: "10px",
+                    "&:hover": {
+                      backgroundColor: "white",
+                      color: "orange",
+                    },
+                  }}
+                >
+                  {item}
+                </Button>
+                <Badge badgeContent={quantity} color="error" sx={{top: '-7px'}}/>
+              </Link>
               } else {
                 return (
                   <Link
@@ -181,6 +224,7 @@ function DrawerAppBar(props) {
                 );
               }
             })}
+
           </Box>
         </Toolbar>
       </AppBar>

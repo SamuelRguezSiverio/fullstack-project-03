@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Box } from '@mui/material'
 import { CartContext } from '../../Contexts/CartContext'
 import './PhoneDetail.css'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 function PhoneDetail(props) {
   const { id, memoria, modelo, pantalla, dimensiones, procesador, camara_frontal, camara, peso, bateria, extras, precio, color, imgUrl } = props
@@ -41,6 +42,12 @@ function PhoneDetail(props) {
     })
   }
 
+  const removePhoneCart = (id) => {
+    setCart((currPhones) => {
+      return currPhones.filter((phone) => phone.id !== id);
+    });
+  };
+
   const getQuantityById = (id) => {
     return cart.find((phone) => phone.id === id)?.quantity || 0
   }
@@ -61,18 +68,10 @@ function PhoneDetail(props) {
               <button className='button-detail-add' onClick={() => addToCart()}>Añadir al Carrito</button>
             ) :
               (
-                <button className='button-detail-qty' onClick={() => removePhone(id)}>-</button>
-              )}
-            {quantityPerItem > 0 && (
-              <Box sx={{
-                display: 'flex', marginLeft:'10px', marginRight:'0px', b: '0', color: 'orange', width: '20px',  fontSize: "20px",
-                fontWeight: "600"
-              }}>
-                {quantityPerItem}
-              </Box>
-            )}
-            {quantityPerItem > 0 && (
-              <button className='button-detail-qty' onClick={() => addToCart()}>+</button>
+              <>
+              <div className='product-added'><h4>¡Artículo añadido a la cesta!</h4></div>
+              <div><button className='button-detail-trash' onClick={() => removePhoneCart(id)}><DeleteForeverIcon/></button></div>
+              </>
             )}
           </div>
         </div>

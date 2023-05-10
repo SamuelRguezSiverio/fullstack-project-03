@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import { CartContext } from '../../Contexts/CartContext'
 import './Cart.css'
-
-
+import { Link } from 'react-router-dom'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 function Cart() {
   const [cart, setCart, onCheckout] = useContext(CartContext)
 
@@ -45,6 +45,12 @@ function Cart() {
     })
   }
 
+  const removePhoneCart = (id) => {
+    setCart((currPhones) => {
+      return currPhones.filter((phone) => phone.id !== id);
+    });
+  };
+
   return (
     <div className='main-cart'>
         <h1>Mi Cesta</h1>
@@ -52,13 +58,13 @@ function Cart() {
       {cart.map((phone) => (
         <div key={phone.id} className='phone-cart-box'>
           <div className='img-cart'>
-            <img src={phone.imgUrl} />
+            <img src={phone.imgUrl}/>
           </div>
           <div className='data-cart'>
-            <h3>{phone.modelo} {phone.memoria} {phone.color}</h3><br></br>
+            <Link to={`/smartphones/${phone.id}`} style={{textDecoration: 'none', color:'black'}} key={phone.id}><h3 className='cart-phone-title'>{phone.modelo} {phone.memoria} {phone.color}</h3></Link><br></br>
             <div>
-              <span><b>Cantidad:</b></span><button className='button-cart-qty' onClick={() => removePhone(phone.id)}>-</button><span className='qty-text'>{phone.quantity}</span><button className='button-cart-qty' onClick={() => addToCart(phone.id)}>+</button>
-
+            <button className='button-cart-delete' onClick={() => removePhoneCart(phone.id)}><DeleteForeverIcon/></button>
+              <button className='button-cart-qty' onClick={() => removePhone(phone.id)}>-</button><span className='qty-text'>{phone.quantity}</span><button className='button-cart-qty' onClick={() => addToCart(phone.id)}>+</button>
             </div>
           </div>
         </div>

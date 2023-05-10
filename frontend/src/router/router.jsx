@@ -19,9 +19,7 @@ const router = createBrowserRouter([
     element: (
       <CartProvider>
         <SearchProvider>
-
-          <App />
-
+            <App />
         </SearchProvider>
       </CartProvider>
     ),

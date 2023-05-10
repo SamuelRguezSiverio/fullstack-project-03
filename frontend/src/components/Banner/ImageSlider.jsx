@@ -57,7 +57,6 @@ const ImageSlider = ({ slides, autoPlayInterval = 5000 }) => {
     }, autoPlayInterval);
 
     setAutoPlayTimerId(timerId);
-
     return () => {
       clearInterval(autoPlayTimerId);
     };
