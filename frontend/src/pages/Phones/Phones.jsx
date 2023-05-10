@@ -1,4 +1,4 @@
-import  { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import PhoneCard from '../../components/PhoneCard/PhoneCard';
 import { Link } from 'react-router-dom';
 import './Phones.css';
@@ -7,16 +7,17 @@ import { getAllBrands } from '../../services/phoneAPI';
 import { SearchContext } from '../../Contexts/SearchContext';
 import { useLocation } from 'react-router-dom';
 
-function Phones() {
-  const { search } = useContext(SearchContext);
-  const [ phones, setPhones ] = useState([])
+function Phones () {
+  const { search, setSearch } = useContext(SearchContext);
+  const [phones, setPhones] = useState([])
   const [brands, setBrands] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState('');
+
   const { state } = useLocation();
-  let id = state?.id;
+  const id = state?.id;
 
   useEffect(() => {
-    async function getAllAndSetPhones() {
+    async function getAllAndSetPhones () {
       const phones = await getAllPhones();
       setPhones(phones);
     }
@@ -24,25 +25,31 @@ function Phones() {
   }, []);
 
   useEffect(() => {
-    async function getAllAndSetBrands() {
+    async function getAllAndSetBrands () {
       const brands = await getAllBrands();
       setBrands(brands);
     }
     getAllAndSetBrands();
   }, []);
 
-  function filterPhones() {
+
+
+  function filterPhones () {
     let filteredPhones = phones;
     if (search !== '') {
       filteredPhones = phones.filter((phone) =>
         search ? phone.modelo.toLowerCase().includes(search.toLowerCase()) : true
       );
-    } 
-    if (id !== undefined) {
+    }
+
+    if (id !== undefined && search === '' && selectedBrand === '') {
+
       filteredPhones = filteredPhones.filter((phone) => phone.brandId === id);
     }
     if (selectedBrand !== '') {
+
       filteredPhones = filteredPhones.filter((phone) => phone.modelo.startsWith(selectedBrand));
+
     }
     filteredPhones = filteredPhones.map((phone) => (
       <Link key={phone.id} to={`/smartphones/${phone.id}`} style={{ textDecoration: 'none', color: 'black' }}>
@@ -52,11 +59,11 @@ function Phones() {
     if (filteredPhones.length > 0) {
       return filteredPhones;
     } else {
-      return <h1>No Results Found!</h1>;
+      return <h1>¡No hay resultados...!</h1>;
     }
   }
 
-  function handleBrandSelect(event) {
+  function handleBrandSelect (event) {
     setSelectedBrand(event.target.value);
   }
   return (

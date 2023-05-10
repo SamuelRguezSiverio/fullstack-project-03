@@ -34,8 +34,6 @@ function AfterSales() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aquí podríamos hacer algo con los datos del cliente seleccionado
-    console.log(selectedClient);
   };
 
   const orderSent = () => {
