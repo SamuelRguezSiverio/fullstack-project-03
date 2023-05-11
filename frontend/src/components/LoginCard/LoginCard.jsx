@@ -6,11 +6,16 @@ import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import PhoneIphoneRoundedIcon from '@mui/icons-material/PhoneIphoneRounded'; import Typography from '@mui/material/Typography';
+
+import InputAdornment from '@mui/material/InputAdornment';
+import PhoneIphoneRoundedIcon from '@mui/icons-material/PhoneIphoneRounded';
+import {Visibility, VisibilityOff} from '@mui/icons-material/'
+import {Typography, IconButton} from '@mui/material/';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import backgroundIMG from '../../assets/login-templete.jpg'
 import { login } from '../../services/auth'
 import { useNavigate } from 'react-router-dom'
+import {styled } from '@mui/material/styles';
 
 function Copyright(props) {
   return (
@@ -24,6 +29,26 @@ function Copyright(props) {
   );
 }
 
+const CssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: '#A0AAB4',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: '#B2BAC2',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: '#E0E3E7',
+    },
+    '&:hover fieldset': {
+      borderColor: 'orange',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'orange',
+    },
+  },
+});
+
 const theme = createTheme();
 
 export default function LoginCard() {
@@ -31,6 +56,7 @@ export default function LoginCard() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
+  const [isPassVisible, setIsPassVisible] = useState(false)
 
   const navigate = useNavigate()
 
@@ -96,29 +122,44 @@ export default function LoginCard() {
             }} component="h1" variant="h5">
               triPHONE
             </Typography>
-              <TextField
+              <CssTextField
                 margin="normal"
                 required
                 fullWidth
                 id="email"
+                color='warning'
                 label="Email Address"
                 name="email"
                 autoComplete="email"
                 autoFocus
                 onChange={(e) => updateEmail(e.target.value)}
               />
-              <TextField
+              <CssTextField
                 margin="normal"
                 required
                 fullWidth
                 name="password"
+                color='warning'
                 label="Password"
-                type="password"
+                type={isPassVisible ? 'text' : 'password'}
                 id="password"
                 onKeyPress={(e) => {
                   if (e.key === 'Enter') return onLogin()
                 }}
                 onChange={(e) => updatePassword(e.target.value)}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment>
+                      <IconButton
+                        onClick={() => {
+                          setIsPassVisible((oldState) => !oldState)
+                        }}
+                      >
+                        {isPassVisible ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
               />
               {errorMessage && (
           <Typography color="error" textAlign="center" mt={2}>
