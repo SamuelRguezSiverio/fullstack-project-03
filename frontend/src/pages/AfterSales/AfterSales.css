@@ -41,13 +41,13 @@ input {
 
 
 
-label {
+.form-container-data1>label {
     font-size: 20px;
     font-weight: bold;
     margin-left: 10px;
 }
 
-input {
+.form-container-data1>input {
     width: 100%;
     font-size: 15px;
     background-color: orange;
@@ -55,7 +55,7 @@ input {
     font-weight: bold;
 }
 
-input[type=text] {
+.form-container-data1>input[type=text] {
   width: 100%;
   padding: 5px 20px;
   border: none;
@@ -63,6 +63,26 @@ input[type=text] {
 
 textarea:focus, input:focus, input[type]:focus {
     outline: 0 none;
+}
+
+.form-container-data2>label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.form-container-data2>input {
+    width: 100%;
+    font-size: 15px;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+}
+
+.form-container-data2>input[type=text] {
+  width: 100%;
+  padding: 5px 20px;
+  border: none;
 }
 
 select {

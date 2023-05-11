@@ -43,13 +43,10 @@ function Phones () {
     }
 
     if (id !== undefined && search === '' && selectedBrand === '') {
-
       filteredPhones = filteredPhones.filter((phone) => phone.brandId === id);
     }
     if (selectedBrand !== '') {
-
       filteredPhones = filteredPhones.filter((phone) => phone.modelo.startsWith(selectedBrand));
-
     }
     filteredPhones = filteredPhones.map((phone) => (
       <Link key={phone.id} to={`/smartphones/${phone.id}`} style={{ textDecoration: 'none', color: 'black' }}>
@@ -66,6 +63,12 @@ function Phones () {
   function handleBrandSelect (event) {
     setSelectedBrand(event.target.value);
   }
+
+  function clearFilters() {
+    setSelectedBrand('')
+    setSearch('')
+  }
+
   return (
     <div className="main">
       <h1 className="title">Smartphones</h1>
@@ -79,6 +82,7 @@ function Phones () {
             </option>
           ))}
         </select>
+        <button className='clear-filter-button' onClick={() => clearFilters()}>Borrar Filtros</button>
       </div>
       <div className="phone-boxes">
         {phones.length > 0 && filterPhones()}
