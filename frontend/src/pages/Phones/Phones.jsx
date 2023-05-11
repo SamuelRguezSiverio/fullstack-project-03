@@ -82,7 +82,8 @@ function Phones () {
             </option>
           ))}
         </select>
-        <button className='clear-filter-button' onClick={() => clearFilters()}>Borrar Filtros</button>
+
+  { !selectedBrand && !search ? '' :<button className='clear-filter-button' onClick={() => clearFilters()}>Borrar Filtros</button>}
       </div>
       <div className="phone-boxes">
         {phones.length > 0 && filterPhones()}

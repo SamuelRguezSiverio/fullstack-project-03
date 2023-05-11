@@ -6,11 +6,10 @@ import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-
 import InputAdornment from '@mui/material/InputAdornment';
 import PhoneIphoneRoundedIcon from '@mui/icons-material/PhoneIphoneRounded';
 import {Visibility, VisibilityOff} from '@mui/icons-material/'
-import {Typography, IconButton} from '@mui/material/';
+import {Typography, IconButton} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import backgroundIMG from '../../assets/login-templete.jpg'
 import { login } from '../../services/auth'
